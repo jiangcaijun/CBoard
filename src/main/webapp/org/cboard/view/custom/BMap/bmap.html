@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="org/cboard/view/custom/BMap/bmap.css">
+    <link href="org/cboard/view/custom/static/css/select2.min.css" rel="stylesheet" />
+    <script src="org/cboard/view/custom/static/js/select2.min.js"></script>
+    <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>-->
+    <script src="org/cboard/view/custom/static/js/public.js"></script>
+    <script src="org/cboard/view/custom/BMap/bmap.js"></script>
+</head>
+
+<body>
+<div class="heen">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-spin" style="color: #777777;position: absolute;top: 40%;left: 40%"></i>
+</div>
+    <div class="row heaselect">
+
+        <div class="col-sm-12">
+            <div class="choice">
+                <div class="select_F">
+                    <select class="select2 js-example-basic-multiple js-states form-control" id="city_name" onchange="select_name()" style="width: 100%"></select>
+                </div>
+                <div class="infos">
+                    <p class="not_receive fl">实时总未接单量:<span class="not_receive_orders"></span></p>
+                    <p class="wait_man fl">实时总可接单闪送员:<span class="total_waiting_couriers"></span></p>
+                    <p class="pay_order fl">今日累计总支付单量:<span class="total_pay_orders"></span></p>
+                    <p class="total_receive fl">今日累计接收单量:<span class="total_receive_orders"></span></p>
+                    <p class="total_reception_probability fl">今日累计接单率:<span class="reception_probability"></span></p>
+                </div>
+                <p class="updateB">
+                    <span class="">时间:<i class="timer"></i></span>
+                    <button type="button" class="glyphicon glyphicon-refresh update"></button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="bmap_box">
+        <div id="allmap"></div>
+    </div>
+
+</body>
+
+</html>

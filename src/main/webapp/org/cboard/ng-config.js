@@ -97,7 +97,42 @@ angular.module('cBoard').config(['$stateProvider', function ($stateProvider) {
             params: {boardId: null},
             templateUrl: 'org/cboard/view/config/board/cockpit/view.html',
             controller: 'cockpitLayoutCtrl'
-        })
+        });
+    $.ajax({
+        url: "commons/getMenuList.do",
+        type: "GET",
+        dataType: "json",
+        async: false,
+        success: function(data) {
+            menuList = data;
+            // console.group('commons/getMenuList.do ，加载menu.editFlag == true 的信息');
+            for(var i = 0; i < menuList.length; i++){
+                var menu = menuList[i];
+                if(menu.editFlag == true){
+                    // console.log(menu);
+                    try {
+                        if( menu.menuStateController != undefined && menu.menuStateController != ''){
+                            $stateProvider
+                                .state(menu.menuCode, {
+                                    url: menu.menuStateUrl,
+                                    templateUrl: menu.menuStateTemplateUrl,
+                                    controller: menu.menuStateController
+                                });
+                        }else {
+                            $stateProvider
+                                .state(menu.menuCode, {
+                                    url: menu.menuStateUrl,
+                                    templateUrl: menu.menuStateTemplateUrl
+                                });
+                        }
+                    }catch (err){
+                        console.error('$stateProvider.state的编码字段，即 menu_code 存在重复，建议对该字段进行修改。' + err);
+                    }
+                }
+            }
+            console.groupEnd();
+        }
+    });
 }]);
 
 angular.module('cBoard').factory('sessionHelper', ["$rootScope", "$q", function ($rootScope, $q) {

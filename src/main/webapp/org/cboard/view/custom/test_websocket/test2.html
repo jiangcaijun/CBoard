@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table  id="table" border="1">
+    <tr>
+        <th >id</th>
+        <th >name</th>
+    </tr>
+    <!--<%-->
+    <!--&lt;!&ndash;//的到数据库信息，放在list中&ndash;&gt;-->
+    <!--Client client=new Client();-->
+    <!--List<UserBean> list= client.list();-->
+    <!--if(list != null){-->
+    <!--for(UserBean user : list){-->
+    <!--%>-->
+    <tr >
+        <td ><%=user.getId()%></td>
+        <td ><%=user.getName()%></td>
+    </tr>
+    <!--<%-->
+    <!--}-->
+    <!--}-->
+    <!--%>-->
+</table>
+<div id="message"></div>
+
+<script>
+    var websocket = null;
+    //判断当前浏览器是否支持WebSocket
+    if ('WebSocket' in window) {
+        //建立连接，这里的/websocket ，是ManagerServlet中开头注解中的那个值
+        websocket = new WebSocket("ws://localhost:8080/bdportal/chat");
+    }else {
+        alert('当前浏览器 Not support websocket')
+    }
+    //连接发生错误的回调方法
+    websocket.onerror = function () {
+        setMessageInnerHTML("WebSocket连接发生错误");
+    };
+    //连接成功建立的回调方法
+    websocket.onopen = function () {
+        setMessageInnerHTML("WebSocket连接成功");
+    }
+    //接收到消息的回调方法
+    websocket.onmessage = function (event) {
+        setMessageInnerHTML(event.data);
+        if(event.data=="1"){
+            location.reload();
+        }
+    }
+    //连接关闭的回调方法
+    websocket.onclose = function () {
+        setMessageInnerHTML("WebSocket连接关闭");
+    }
+    //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+    window.onbeforeunload = function () {
+        closeWebSocket();
+    }
+    //将消息显示在网页上
+    function setMessageInnerHTML(innerHTML) {
+        document.getElementById('message').innerHTML += innerHTML + '<br/>';
+    }
+    //关闭WebSocket连接
+    function closeWebSocket() {
+        websocket.close();
+    }
+</script>
+</body>
+</html>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+
+    <script type="text/javascript">
+        function WebSocketTest() {
+            if ("WebSocket" in window) {
+                alert("您的浏览器支持 WebSocket!");
+                // 打开一个 web socket
+                var ws = new WebSocket("ws://localhost:8080/bdportal/chat");
+                ws.onopen = function() {
+                    // Web Socket 已连接上，使用 send() 方法发送数据
+                    ws.send("发送数据");
+                    alert("数据发送中...");
+                };
+
+                ws.onmessage = function (evt) {
+                    var received_msg = evt.data;
+                    alert("数据已接收...");
+                };
+                window.onbeforeunload = function () {
+                    ws.onclose = function() {
+                        // 关闭 websocket
+                        console.log(111)
+                        alert("连接已关闭...");
+                    };
+                }
+//                ws.onclose = function() {
+//                    // 关闭 websocket
+//                    alert("连接已关闭...");
+//                };
+            }else {
+                // 浏览器不支持 WebSocket
+                alert("您的浏览器不支持 WebSocket!");
+            }
+        }
+//        function webSorcket() {
+//
+//        }
+    </script>
+
+</head>
+<body>
+
+<div id="sse">
+    <a href="javascript:WebSocketTest()">运行 WebSocket</a>
+    <button class="" onclick="webSorcket()">关闭链接</button>
+</div>
+
+</body>
+</html>
+
+

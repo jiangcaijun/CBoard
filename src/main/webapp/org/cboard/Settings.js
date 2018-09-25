@@ -8,12 +8,12 @@ var settings = {
 
 var CB_I18N;
 
-$.ajax({
-    url: "i18n/" + settings.preferredLanguage + "/cboard.json",
-    type: "GET",
-    dataType: "json",
-    success: function(data) {
-        return CB_I18N = data;
-    },
-    async: false
-});
+// $.ajax({
+//     url: "i18n/" + settings.preferredLanguage + "/cboard.json",
+//     type: "GET",
+//     dataType: "json",
+//     success: function(data) {
+//         return CB_I18N = data;
+//     },
+//     async: false
+// });

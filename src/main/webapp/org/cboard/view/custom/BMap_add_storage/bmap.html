@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="org/cboard/view/custom/BMap_add_storage/bmap.css">
+    <!--<link rel="stylesheet" href=org/cboard/view/custom/static/js/bootstrap-table/bootstrap-table.css">-->
+    <link href="org/cboard/view/custom/static/css/select2.min.css" rel="stylesheet" />
+    <script src="org/cboard/view/custom/static/js/select2.min.js"></script>
+    <script src="org/cboard/view/custom/static/js/public.js"></script>
+    <script src="org/cboard/view/custom/BMap_add_storage/bmap.js"></script>
+    <script src="org/cboard/view/custom/static/js/tableExport.js"></script>
+    <script src="org/cboard/view/custom/static/js/bootstrap-table/bootstrap-table.js"></script>
+    <!--<script src="org/cboard/view/custom/BMap_add_storage/table_export.js"></script>-->
+</head>
+
+<body id="addStorMap">
+<div class="heen">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-spin" style="color: #777777;position: absolute;top: 40%;left: 40%"></i>
+</div>
+<div class="row heaselect">
+    <div class="col-sm-12">
+        <div class="choice">
+            <div class="select_F">
+                <select class="select2 js-example-basic-multiple js-states form-control" id="city_name" onchange="select_name()" style="width: 100%"></select>
+            </div>
+            <div class="infos">
+                <p class="not_receive fl">实时总未接单量:<span class="not_receive_orders"></span></p>
+                <p class="wait_man fl">实时总可接单闪送员:<span class="total_waiting_couriers"></span></p>
+                <p class="pay_order fl">今日累计总支付单量:<span class="total_pay_orders"></span></p>
+                <p class="total_receive fl">今日累计接收单量:<span class="total_receive_orders"></span></p>
+                <p class="total_reception_probability fl">今日累计接单率:<span class="reception_probability"></span></p>
+            </div>
+            <p class="updateB">
+                <span class="">时间:<i class="timer"></i></span>
+                <button type="button" class="glyphicon glyphicon-refresh update"></button>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="bmap_box" >
+    <!--弹出框-显示辅助工具计算相加的数字-->
+    <div class="AddMOdelSm">
+        <p class="disHode glyphicon glyphicon-remove" onclick="dsiHideModel()"> </p>
+        <p class="OrdersP" style="margin-top: 10px;">总 未 接  单 :<span class="notOrders"></span></p>
+        <p class="OrdersP">总可接单闪送员:<span class="waitOrders"></span></p>
+        <p class="OrdersP">总累计支付单量:<span class="totalPay"></span></p>
+        <p class="OrdersP" style="">总累计接收单量:<span class="totalOrders"></span></p>
+    </div>
+    <!--弹出框-保存绘图数据-->
+    <div class="add_map_infor_zhe mianban">
+        <div class="add_map_infor mianban_sm">
+            <p class="">覆盖物&nbsp:<span class="fugai"></span>个</p>
+            <p class="">图形名称 : <input class="map_canvas_name" type="text" placeholder="输入保存名称"></p>
+            <div class="down_btn">
+                <p class="btn_cancel btn-danger shouzhi btn_radeo">取消</p>
+                <p class="btn_ok btn-success shouzhi btn_radeo">确定</p>
+            </div>
+        </div>
+    </div>
+    <!--弹出框-保存传参数据-->
+    <div class="dateServer_infor mianban">
+        <div class="dateServer_infors mianban_sm">
+            <p class="">记录配置名称 &nbsp<input class="dateServer_option_name" type="text" placeholder="如:雨天未接单配置"></p>
+            <p>初始化显示值为: <span class="selected_name"></span></p>
+            <div class="dataServer_option">
+
+            </div>
+            <div class="down_btn">
+                <p class="dateServer_cancel btn-danger shouzhi btn_radeo">取消</p>
+                <p class="dateServer_ok btn-success shouzhi btn_radeo">确定</p>
+            </div>
+        </div>
+    </div>
+    <div id="allmap" onkeydown="key_down(e)"></div>
+    <!--导出-->
+    <div style="display: none;position: fixed;z-index: 111111;left: 60;top: 40px;width: 700px;height: 400px;background-color: white;overflow: auto" >
+        <h1 class="btn btn-primary" onclick="exportData()">导出Excel</h1>
+        <table id="table_" data-show-columns="true"   data-pagination="true"  data-striped="true" data-page-size="400" data-toggle="table"
+               data-show-export="true">
+            <thead>
+            <tr>
+                <!--<th data-field="id" data-checkbox="true"></th>-->
+                <th data-field="city_name">城市名称</th>
+                <th data-field="center_point">多边形中心点坐标</th>
+                <th data-field="hexagon_area_id">六边形ID</th>
+                <th data-field="address_1">该区域中心位置_1</th>
+                <th data-field="address_2">该区域中心位置_2</th>
+                <th data-field="address_3">该区域中心位置_3</th>
+                <th data-field="day_not_receive_orders">未接单</th>
+                <th data-field="day_total_cancel_orders">取消单</th>
+                <th data-field="cancellation_rate">取消率</th>
+                <th data-field="day_total_finish_orders">完成单</th>
+                <th data-field="day_total_orders">总单量</th>
+                <th data-field="day_total_pay_orders">支付单</th>
+                <th data-field="day_total_receive_orders">总接收单</th>
+                <th data-field="day_total_waiting_couriers">可接单闪送员</th>
+                <th data-field="reception_probability">接单率</th>
+
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <!--左侧显示信息-->
+    <div class="show_infos" id="show_infos">
+        <p class="shensuo glyphicon "></p>
+    </div>
+
+    <!--右侧工具栏  地图详细操作-->
+    <p id="showPanelBtn" class="kongBtn" onclick="showPanel(this)">地图详细操作</p>
+    <div class="panelWrapDiv" id="panelWrap">
+        <div class="table_wa">
+            <p class="left_btn btn_smalie btn-primary shouzhi">参数设置</p>
+            <p class="right_btn btn_smalie shouzhi">绘制工具</p>
+            <!--<p class="three_btn btn_smalie shouzhi">已保存图形</p>-->
+        </div>
+        <div class="table_one">
+            <ul>
+                <li style="font-size: 16px"><b>初始化显示值</b></li>
+                <div class="yyy" style="margin-bottom: 10px;">
+                    <select class="select_status" name="" id="">
+                        <option value="day_total_pay_orders">今日已支付单量</option>
+                        <option value="day_not_receive_orders">今日未接单</option>
+                        <option value="day_total_waiting_couriers">今日可接单闪送员</option>
+                        <option value="reception_probability">今日接单率</option>
+                        <option value="day_total_receive_orders">今日接收单量</option>
+                    </select>
+                    <!--<span class="btn-primary update shouzhi" style="border-radius: 5px;">确认加载</span>-->
+                </div>
+                <!--<label for="checkbox_hide">是否隐藏标注</label>-->
+                <!--<input type="checkbox" id="checkbox_hide" class="checkbox_hides" onclick="hides_lable()"/>-->
+                <button class="hides_btn" onclick="hides_lable()">隐藏标注</button>
+            </ul>
+            <ul>
+                <div class="setting-wrap">
+                    <p class="" style="font-size: 16px"><b>背景颜色区间</b></p>
+                    <p class="">添加配置项 &nbsp<span class="glyphicon shouzhi glyphicon-plus append-setting"></span></p>
+                    <p>填写区间值并选取颜色</p>
+                    <div class="color_options"></div>
+                </div>
+                <div>
+                    <p id="loadMapSetting" class="btn-primary shouzhi" style="border-radius: 5px; width: 80px;text-align: center;margin-top: 10px;margin-left:10px;">预览加载</p>
+                    <p class="btn-success save_options" style="border-radius: 5px; width: 80px;text-align: center;margin-top: 10px;margin-left:10px;">保存配置</p>
+                    <p class="btn-success" onclick='tableToExcel()' style="border-radius: 5px; width: 103px;text-align: center;margin-top: 10px;">导出Excel数据</p>
+
+
+
+                </div>
+            </ul>
+            <table class="table_base table table-striped table_list" data-toggle="table" id="table" border="1" cellspacing="0"style="table-layout:fixed;">
+                <thead>
+                <tr><th>ID</th><th>保存名称</th><th>操作</th></tr>
+                </thead>
+                <tbody class="table_option">
+                </tbody>
+            </table>
+        </div>
+        <div class="table_two">
+            <ul class="btn_shou">
+                <p><input type="button" class="btn-primary " value="获取绘制覆盖物个数" onclick="alert(overlays.length)"/></p>
+                <p><input type="button" class="btn-primary " value="清除所有绘制覆盖物" onclick="clearAll()"/></p>
+                <p><input type="button" class="btn-primary " value="清空左侧信息" id="clear_infos"/></p>
+            </ul>
+            <ul>
+                <div class="add_chart">
+                    <p class="btn-success add_btn shouzhi">保存已绘制图形</p>
+                </div>
+            </ul>
+            <table class="table_base table table-striped table_list" data-toggle="table" id="table" border="1" cellspacing="0"style="table-layout:fixed;">
+                <thead>
+                <tr><th>ID</th><th>图形名称</th><th>操作</th></tr>
+                </thead>
+                <tbody class="table_count">
+                </tbody>
+            </table>
+
+        </div>
+        <div class="table_three">
+        </div>
+        <div id="panel">
+
+        </div>
+    </div>
+    <!--右侧工具栏  地图辅助操作-->
+    <p id="showPanelBtn_2" class="kongBtn" onclick="showPanel(this)">地图辅助操作</p>
+    <div class="panelWrapDiv" id="panelWrap_2">
+        <div class="plsBox">
+            <div style="border-bottom:1px solid #777777">
+                <label for="click_status">开启检索模式</label>
+                <input type="checkbox" id="click_status" class="click_push_status"/>
+                <div style="display: flex">
+                    <p class="btn-success diFaBtn send_click" >发送</p>
+                    <p class="btn-success diFaBtn add_click" onclick="addClick()">统计</p>
+                    <p class="btn-danger diFaBtn black_click" >重置</p>
+                </div>
+            </div>
+            <div>
+                <span>输入城市名称<input class="city_shi inpSty" type="text" >  </span><br>
+                <span>输入查询地址<input class="search_address inpSty" type="text" ></span><br>
+                <div style="display: flex">
+                    <p class="serachAddress diFaBtn btn-success">查询</p>
+                    <p class="deletAddress diFaBtn btn-danger" onclick="deletScarchMark()">清除</p>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+</body>
+<script type="text/javascript">
+
+</script>
+
+</html>

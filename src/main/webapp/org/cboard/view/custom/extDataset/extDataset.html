@@ -1,0 +1,152 @@
+<div id="inner-container" class="content">
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <i class="glyphicon glyphicon-folder-open"></i>
+                    <h3 class="box-title"> {{'CONFIG.CUSTOM.EXTDATASET'|translate}}</h3>
+                    <div class="box-tools pull-right">
+                        <i class="fa fa-plus toolbar-icon" ng-click="newBordCategory()"
+                           title="{{'COMMON.NEW'|translate}}"></i>&nbsp;&nbsp;
+                    </div>
+                </div>
+                <div class="box-body no-padding">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li ng-repeat="o in extDatasetList">
+                                    <a>
+                                        {{o.dsName}}
+                                        <span class="pull-right text-red">
+                                            <i class="fa fa-edit" style="cursor: pointer" ng-click="editBordCategory(o)"
+                                               title="{{'COMMON.EDIT'|translate}}"></i>&nbsp;
+                                            <i class="fa fa-trash-o" style="cursor: pointer"
+                                               ng-click="deleteBordCategory(o)"
+                                               title="{{'COMMON.DELETE'|translate}}"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                    </div>
+                    <!-- /.box-footer-->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+
+            <div class="box box-info" ng-show="optFlag == 'new' || optFlag == 'edit'">
+                <div class="box-header with-border">
+                    <h3 class="box-title">{{curCategory.dsName}}</h3>
+                    <div class="box-tools pull-right" ng-switch="optFlag">
+                        <span ng-switch-when="edit" class="label label-info">{{'COMMON.EDIT'|translate}}</span>
+                        <span ng-switch-when="new" class="label label-danger">{{'COMMON.NEW'|translate}}</span>
+                    </div>
+                </div>
+                <form class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group"
+                             ng-class="{'has-error': !(verify.dsName || curCategory.dsName.length)}">
+                            <label class="col-sm-2 control-label">{{'CONFIG.CUSTOM.EXTDATASET.NAME'|translate}}</label>
+                            <div class="col-sm-10">
+                                <input id="id" ng-model="curCategory.id" style="display: none"/>
+                                <input id="dsName" ng-model="curCategory.dsName" class="form-control input-sm"/>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{'has-error': !(verify.dsCode || curCategory.dsCode.length)}">
+                            <label class="col-sm-2 control-label">{{'CONFIG.CUSTOM.EXTDATASET.CODE'|translate}}</label>
+                            <div class="col-sm-10">
+                                <input id="dsCode" ng-model="curCategory.dsCode" class="form-control input-sm"/>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{'has-error': !(verify.dsDesc || curCategory.dsDesc.length)}">
+                            <label class="col-sm-2 control-label">{{'CONFIG.CUSTOM.EXTDATASET.DESC'|translate}}</label>
+                            <div class="col-sm-10">
+                                <input id="dsDesc" ng-model="curCategory.dsDesc" class="form-control input-sm"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">{{'CONFIG.CUSTOM.EXTDATASET.PARAS'|translate}}</label>
+                            <div class="col-sm-10">
+                                <input id="dsParas" ng-model="curCategory.dsParas" class="form-control input-sm"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">{{'CONFIG.CUSTOM.EXTDATASET.DATASOURCEID'|translate}}</label>
+                            <div class="col-sm-10">
+                                <select id="dsDatasourceId" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{'has-error': !(verify.dsQuery || curCategory.dsQuery.length)}">
+                            <label class="col-sm-2 control-label">{{'CONFIG.CUSTOM.EXTDATASET.QUERY'|translate}}</label>
+                            <div class="col-sm-10">
+                                <textarea class="ckeditor" id="dsQuery" ng-model="curCategory.dsQuery"  cols="80" id="editor3" rows="10" tabindex="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">{{'CONFIG.CUSTOM.EXTDATASET.INPUTPARAS'|translate}}</label>
+                            <div class="col-sm-10">
+                                <input id="inputParas" ng-model="curCategory.inputParas" class="form-control input-sm"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">{{'CONFIG.CUSTOM.EXTDATASET.OUTPUTURL'|translate}}</label>
+                            <div class="col-sm-10">
+                                <input class="form-control input-sm" disabled value="ext/getDataset.do"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">{{'CONFIG.CUSTOM.EXTDATASET.OUTPUT4POST'|translate}}</label>
+                            <div class="col-sm-10">
+                                <input id="output4Post" ng-model="curCategory.outputUrl" class="form-control input-sm" disabled></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">{{'CONFIG.CUSTOM.EXTDATASET.OUTPUT4GET'|translate}}</label>
+                            <div class="col-sm-10">
+                                <input id="output4Get" ng-model="curCategory.outputUrl" class="form-control input-sm" disabled></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-repeat="alert in alerts">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div uib-alert ng-class="'alert-' + (alert.type || 'warning')"
+                                 close="alerts.splice($index, 1)">{{alert.msg}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" ng-click="doCancel()"
+                                            class="btn btn-danger pull-right">
+                                        {{'COMMON.CANCEL'|translate}}
+                                    </button>
+                                    <button type="submit" ng-click="save()"
+                                            class="btn btn-success pull-right"
+                                            style="margin-right: 5px">{{'COMMON.SAVE'|translate}}
+                                    </button>
+                                    <button type="submit" ng-click="preview()"
+                                            class="btn btn-success pull-right"
+                                            style="margin-right: 5px">
+                                        {{'CONFIG.WIDGET.PREVIEW'|translate}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

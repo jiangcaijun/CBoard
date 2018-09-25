@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket</title>
+    <link rel="stylesheet" href="org/cboard/view/custom/test_websocket/tt.css">
+    <script src="org/cboard/view/custom/static/js/public.js"></script>
+</head>
+<body>
+<script src="org/cboard/view/custom/test_websocket/test.js"></script>
+<!--<div style="width: 600px; height: 240px; overflow-y: auto; border: 1px solid #333;" id="show">-->
+    <!--<div id="showChatMessage"></div>-->
+    <input class="inp_1" type="text" size="80" id="msg" name="msg" placeholder="输入聊天内容" />
+<p>实时已接单 :<span class="inp_1"></span></p>
+    <input type="button" value="发送" id="sendBn" name="sendBn" onclick="send()">
+<!--</div>-->
+<div class="big_box">
+    <div id="allmap" class="map_socket"></div>
+</div>
+</body>
+</html>

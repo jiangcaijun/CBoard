@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet"
+		  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+	<link rel="stylesheet" href="org/cboard/view/custom/weather_server/weatherServer.css">
+	<link href="org/cboard/view/custom/static/bootstrap/bootstrap-table.min.css" rel="stylesheet"/>
+	<script src="org/cboard/view/custom/static/bootstrap/bootstrap-table.min.js"></script>
+	<script src="org/cboard/view/custom/static/bootstrap/bootstrap-table-zh-CN.min.js"></script>
+	<link href="org/cboard/view/custom/static/css/select2.min.css" rel="stylesheet"/>
+	<script src="org/cboard/view/custom/static/js/select2.min.js"></script>
+	<script src="org/cboard/view/custom/weather_server/weatherServer.js"></script>
+	<script src="org/cboard/view/custom/static/js/tableExport.min.js"></script>
+	<!--<script src="org/cboard/view/custom/weather_server/weatherServers.js"></script>-->
+</head>
+<body>
+<div class="bgbox" style="background-color: #FFFFFF">
+
+	<div class="tittle_">
+		<div class="tittle_div history_tittle_div ">
+			<p class="tittle_header history_tittle tittle_header_active">天气服务历史查询</p>
+		</div>
+		<div class="tittle_div forecast_tittle_div">
+			<p class="tittle_header forecast_tittle">天气预测</p>
+		</div>
+	</div>
+
+	<div class="tittle_2">
+		<div class="tittle_div_2 forecast_24">
+			<p class="tittle_header tittle_header_active forecast_24_p">预测24小时数据</p>
+		</div>
+		<div class="tittle_div_2 forecast_15">
+			<p class="tittle_header forecast_15_p">预测未来15天数据</p>
+		</div>
+	</div>
+		<br>
+	<div class="history_div div_box">
+		<div class="header_table">
+			<div class="time_serach history_select_div">
+				<div>
+					开始时间&nbsp<input type="text" id="time1" class="time1 history_time" onchange="" >
+				</div>
+				<div style="margin-top: 10px;">
+					结束时间&nbsp<input type="text" id="time2" class="time2 history_time" onchange="">
+				</div>
+			</div>
+			<div class="time_serach2 history_select_div">
+				<div>
+					开始时间&nbsp<input type="text" id="time3" class="time3 history_time" onchange="" >
+				</div>
+				<div style="margin-top: 10px;">
+					结束时间&nbsp<input type="text" id="time4" class="time4 history_time" onchange="">
+				</div>
+			</div>
+			<!--城市查询-->
+			<div class="history_select_city history_select_div">
+					<span style="font-size: 18px"><b>城市筛选 :</b></span>
+					<select class="select1 select_city history_select js-example-basic-multiple js-states form-control" onchange=""
+							style="width: 120px;height: 40px;background: rgba(231,237,243,1); mix-height:40px;overflow: hidden;">
+						<!--<option value="">所有城市</option>-->
+					</select>
+				<p style="font-size: 9px;color: #777777;">(默认空值:选中所有城市)</p>
+			</div>
+			<!--天气状态-->
+			<div class="history_select_weather history_select_div">
+				<span style="font-size: 18px"><b>天气类型 :</b></span>
+				<select id="select_city" class="select2 select_weather history_select js-example-basic-multiple js-states form-control" onchange=""
+						style="width: 90px;height: 40px; mix-height:40px;overflow: hidden;background: rgba(231,237,243,1);">
+					<!--<option value="">所有天气</option>-->
+				</select>
+				<p style="font-size: 9px;color: #777777">(默认空值:选中所有天气类型)</p>
+			</div>
+			<div class="history_select_div history_search history_select_div">
+				<p class="btn-success weather_history_search_btn weathersearch_btn"><i class="glyphicon glyphicon-search"></i>搜索</p>
+				<p class="btn-success forecast_search_btn weathersearch_btn"><i class="glyphicon glyphicon-search"></i>搜索</p>
+				<h1 class="btn btn-primary exportHistory" onclick="exportData_history()">导出Excel</h1>
+				<h1 class="btn btn-primary exportForecast" onclick="exportData_forecast()">导出Excel</h1>
+			</div>
+		</div>
+		<!--历史天气服务table-->
+		<div class="weather_table" style="padding: 10px; background-color: #FFFFFF" >
+			<table id="weather_table_bar"  class="">
+
+			</table>
+
+		</div>
+		<!--预测天气服务table-->
+		<div class="forecast_table" style="padding: 10px; background-color: #FFFFFF" >
+			<table id="forecast_table_bar"  class="">
+
+			</table>
+		</div>
+
+
+	</div>
+
+</div>
+
+
+<script type="text/javascript">
+//	滑过动画一级目录
+	$('.tittle_header').hover(function(){
+		$(this).addClass("animated rubberBand");
+	},function(){
+		$(this).removeClass("animated rubberBand");
+	})
+//	滑过动画2级目录
+$('.tittle_header').hover(function(){
+    $(this).addClass("animated rubberBand");
+},function(){
+    $(this).removeClass("animated rubberBand");
+})
+
+//点击15天
+	$('.forecast_15').click(function () {
+        $('.time_serach').show();
+		$('.forecast_24_p').removeClass('tittle_header_active');
+        $('.forecast_15_p').addClass('tittle_header_active');
+        $("#forecast_table_bar").bootstrapTable('destroy');
+        $('.time_serach').hide();
+        $('.time_serach2').show();
+        forecast();
+    })
+	$('.forecast_24').click(function () {
+		$('.time_serach').hide();
+		$('.forecast_15_p').removeClass('tittle_header_active');
+		$('.forecast_24_p').addClass('tittle_header_active');
+        $('.time_serach').hide();
+        $('.time_serach2').hide();
+        forecast();
+	})
+
+//	点击一级切换
+	$('.forecast_tittle_div').click(function () {
+//	    头部样式切换
+        $('.forecast_tittle').addClass('tittle_header_active');
+        $('.history_tittle').removeClass('tittle_header_active');
+//		table切换
+        $('.weather_table').hide(1000);
+        $('.forecast_table').show();
+//        搜索按钮切换
+        $('.weather_history_search_btn').hide();
+        $('.forecast_search_btn').show();
+//		导出按钮
+        $('.exportForecast').show();
+        $('.exportHistory').hide();
+//        二级木了目录
+		$('.tittle_2').show();
+
+		$('.time_serach').hide();
+        forecast();
+    })
+
+	$('.history_tittle_div').click(function () {
+		$('.history_tittle').addClass('tittle_header_active');
+		$('.forecast_tittle').removeClass('tittle_header_active');
+
+        $('.forecast_table').hide(1000);
+        $('.weather_table').show();
+
+        $('.forecast_search_btn').hide();
+        $('.weather_history_search_btn').show();
+
+        $('.exportForecast').hide();
+        $('.exportHistory').show();
+
+        $('.tittle_2').hide();
+
+        $('.time_serach').show();
+
+        $('.forecast_15_p').removeClass('tittle_header_active');
+        $('.forecast_24_p').addClass('tittle_header_active');
+
+        $('.time_serach2').hide();
+	})
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+/*下拉框调试*/
+.select2-container--classic .select2-selection--single .select2-selection__rendered{
+	line-height: 33px !important;
+}
+.select2-selection__rendered{
+	height: 31px;
+	overflow: auto !important;
+}
+/*头部盒子*/
+.tittle_{
+	display: flex;
+	justify-content: space-between;
+	/*padding: 10px 0px;*/
+	/*background-color: #FFFFFF;*/
+	border-bottom: 2px dotted #5bc0de;
+}
+.tittle_div{
+	text-align: center;
+	flex: 1;
+	font-size: 22px;
+	/*border-radius: 10px;*/
+	padding: 10px 10px 0 10px;
+	cursor: pointer;
+
+}
+/*二级目录*/
+.tittle_2{
+	display: none;
+	width: 400px;
+	margin: 0 auto;
+	overflow: hidden;
+	margin-top: 15px;
+}
+.tittle_div_2{
+	text-align: center;
+	cursor: pointer;
+	font-size: 18px;
+}
+.forecast_24{
+	float: left;
+}
+.forecast_15{
+	float: right;
+}
+.history_tittle_div{
+	border-right: 5px dotted #00a157;
+}
+.tittle_header:hover{
+	background-color: #5bc0de;
+	color: #FFFFFF;
+}
+.tittle_header_active {
+	background-color: #5bc0de;
+	color: #FFFFFF;
+}
+
+/*主体*/
+.div_box{
+	background-color: #FFFFFF;
+}
+/*查询参数盒子*/
+.header_table{
+	display: flex;
+	padding:10px 0px 0px 0px;
+	justify-content: space-around;
+}
+/*时间筛选框*/
+.history_time{
+	width: 120px;
+	height: 34px;
+	line-height: 20px;
+}
+/*下拉框位置公共样式*/
+.history_select_div{
+	padding-top: 20px;
+}
+/*搜索公共样式*/
+.weathersearch_btn{
+	width: 68px;
+	height: 38px;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 38px;
+}
+
+.forecast_search_btn , .exportForecast ,.time_serach2{
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.i_style{
+	width: 27px;
+	height: 17px;
+	display: inline-block;
+}
+/*扬沙*/
+.blowing_sand{
+	background: url(../static/imgs/weather/blowing_sand.png) no-repeat;
+}
+/*阵雨*/
+.shower{
+	background: url(../static/imgs/weather/shower.png) no-repeat;
+}
+/*雷阵雨*/
+.thunder_shower{
+	background: url(../static/imgs/weather/thunder_shower.png) no-repeat;
+}
+/*中雨*/
+.moderate_rain{
+	background: url(../static/imgs/weather/moderate_rain.png) no-repeat;
+}
+/*小雨*/
+.smll_rain{
+	background: url(../static/imgs/weather/smll_rain.png) no-repeat;
+}
+/*雨夹雪*/
+.sleet{
+	background: url(../static/imgs/weather/sleet.png) no-repeat;
+}
+/*晴天*/
+.clear_day{
+	background: url(../static/imgs/weather/clear_day.png) no-repeat;
+}
+/*多云*/
+.cloudy_day{
+	background: url(../static/imgs/weather/cloudy_day.png) no-repeat;
+}
+/*雾*/
+.fog_day{
+	background: url(../static/imgs/weather/fog_day.png) no-repeat;
+}
+/*霾*/
+.haze_day{
+	background: url(../static/imgs/weather/haze_day.png) no-repeat;
+}
+/*雨天*/
+.rain_day{
+	background: url(../static/imgs/weather/rain.png) no-repeat;
+}
+/*大雨*/
+.big_rain{
+	background: url(../static/imgs/weather/big_rain.png) no-repeat;
+}
+/*阴天*/
+.shade_day{
+	background: url(../static/imgs/weather/shade_day.png) no-repeat;
+}
+/*雪*/
+.snow_day{
+	background: url(../static/imgs/weather/snow_day.png) no-repeat;
+}
+/*浮尘*/
+.smoke_day{
+	background: url(../static/imgs/weather/smoke_day.png) no-repeat;
+}
+/*暴雨*/
+.rainstorm{
+	background: url(../static/imgs/weather/rainstorm.png) no-repeat;
+}
+
+
+
+
+

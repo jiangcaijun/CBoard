@@ -1,0 +1,83 @@
+<!-- Content Wrapper. Contains page content -->
+<div id="inner-container" class="content">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <i class="fa fa-cubes"></i> <h3 class="box-title"> {{'ADMIN.PAGE.PAGE'|translate}}</h3>
+                    <div class="box-tools pull-right">
+                        <i class="fa fa-plus toolbar-icon" ng-click="newDs()" title="{{'COMMON.NEW'|translate}}"></i>&nbsp;&nbsp;
+                        <i class="fa fa-copy toolbar-icon" ng-click="copyNode()" title="{{'COMMON.COPY'|translate}}"></i>&nbsp;&nbsp;
+                        <i class="fa fa-edit toolbar-icon" ng-click="editNode()" title="{{'COMMON.EDIT'|translate}}"></i>&nbsp;&nbsp;
+                        <i class="fa fa-trash-o toolbar-icon"  ng-click="deleteNode()" title="{{'COMMON.DELETE'|translate}}"></i>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <input type="text" class="form-control" placeholder="Search" ng-model="keywords" ng-change="searchNode()" title="dsr:kylin ds:Bill">
+                </div>
+                <div class="panel-body">
+                    <div id="dataSetTreeID" js-tree="treeConfig" should-apply="applyModelChanges()" ng-model="treeData" tree="treeInstance"
+                         tree-events-obj="treeEventsObj"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="box" ng-show="optFlag == 'new' || optFlag == 'edit'">
+                <div class="box-header with-border">
+                    <h3 class="box-title">{{curPage.name}}</h3>
+                    <div class="box-tools pull-right" ng-switch="optFlag">
+                        <span ng-switch-when="edit" class="label label-info">{{'COMMON.EDIT'|translate}}</span>
+                        <span ng-switch-when="new" class="label label-danger">{{'COMMON.NEW'|translate}}</span>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="form-group" ng-repeat="alert in alerts">
+                        <div uib-alert ng-class="'alert-' + (alert.type || 'warning')"
+                             close="alerts.splice($index, 1)">{{alert.msg}}
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': !(verify.dsName || curPage.dashboardMenu_MenuName)}">
+                        <label>{{'ADMIN.PAGE.NAME'|translate}}</label>
+                        <input id="menuName" ng-model="curPage.dashboardMenu_MenuName" class="form-control input-sm"/>
+                    </div>
+                    <div class="form-group">
+                        <label>{{'ADMIN.PAGE.PARENT_ID'|translate}}</label>
+                        <select id="menuParentId" class="form-control" ng-model="curPage.dashboardMenu_ParentId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>{{'ADMIN.PAGE.CODE'|translate}}</label>
+                        <input id="meneuCode" ng-model="curPage.dashboardMenu_MenuCode" class="form-control input-sm"/>
+                    </div>
+                    <div class="form-group">
+                        <label>{{'ADMIN.PAGE.ICON'|translate}}</label>
+                        <input id="menuIcon" ng-model="curPage.dashboardMenu_MenuIcon" class="form-control input-sm"/>
+                    </div>
+                    <div class="form-group">
+                        <label>{{'ADMIN.PAGE.STATE_URL'|translate}}</label>
+                        <input id="menuStateUrl" ng-model="curPage.dashboardMenu_MenuStateUrl" class="form-control input-sm"/>
+                    </div>
+                    <div class="form-group">
+                        <label>{{'ADMIN.PAGE.STATE_TEMPLATE_URL'|translate}}</label>
+                        <input id="menuStateTemplateUrl" ng-model="curPage.dashboardMenu_MenuStateTemplateUrl" class="form-control input-sm"/>
+                    </div>
+                    <div class="form-group">
+                        <label>{{'ADMIN.PAGE.STATE_CONTROLLER'|translate}}</label>
+                        <input id="menuStateController" ng-model="curPage.dashboardMenu_MenuStateController" class="form-control input-sm"/>
+                    </div>
+
+                    <div class="form-group" id="curPageButton4Edit">
+                        <button type="submit" class="btn btn-danger pull-right">{{'COMMON.CANCEL'|translate}}</button>
+                        <button type="submit" ng-click="saveOrEdit()" class="btn btn-success pull-right" style="margin-right: 5px">{{'COMMON.SAVE'|translate}}</button>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                </div>
+                <!-- /.box-footer-->
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

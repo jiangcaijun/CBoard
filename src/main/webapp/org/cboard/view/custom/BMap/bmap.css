@@ -1,0 +1,87 @@
+body, html {width: 100%;height: 100%;margin: 0;font-family: "微软雅黑";}
+.anchorBL{display:none}
+.heaselect{
+    padding-top: 10px;
+}
+.select_F{
+    cursor:pointer;
+    float: left;
+    width: 130px;
+}
+.bmap_box{
+    background: rgba(225,225,225,0.5);
+    padding: 1%;
+}
+#allmap{
+    width: 100%;
+    height: 100%;
+}
+/*头部盒子*/
+.choice{
+    padding: 0 15px;
+}
+/*信息区*/
+.infos{
+    float: left;
+    height: auto;
+    margin-left: 10px;
+}
+/*又浮动*/
+.updateB{
+    float: right;
+}
+.update{
+    height: 22px;
+}
+/*详情布局*/
+.fl{
+    float: left;
+    /*width: 187px;*/
+    margin-left: 10px;
+    line-height: 27px;
+}
+/*详情字体颜色*/
+.not_receive{
+    color: #f1a417;
+}
+.wait_man{
+    color:darkgreen;
+}
+.pay_order{
+    color: #f1a417;
+}
+.total_receive{
+    color: darkgreen;
+}
+.total_reception_probability{
+    color: #f1a417;
+}
+/*搜索框*/
+.select2-container--classic .select2-selection--single{
+    padding-top: 3px !important;
+}
+.heen{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(235,235,235,.8);
+    z-index: 99999;
+}
+@media (min-width: 0px) and (max-width: 1280px){
+    .bmap_box {
+        height: 590px;
+        width: 100%;
+    }
+}
+@media (min-width: 1281px) and (max-width: 1430px) {
+    .bmap_box {
+        height: 610px;
+        width: 100%;
+    }
+}
+@media (min-width: 1431px) and (max-width: 1950px){
+    .bmap_box {
+        height: 850px;
+        width: 100%;
+    }
+}

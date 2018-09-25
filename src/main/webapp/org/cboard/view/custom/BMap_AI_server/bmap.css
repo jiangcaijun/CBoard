@@ -1,0 +1,222 @@
+body, html {width: 100%;height: 100%;margin: 0;font-family: "微软雅黑";}
+dl,dt,dd,ul,li{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+/*隐藏百度地图左下角标识*/
+.anchorBL,.BMap_cpyCtrl{display:none}
+ul{
+    border-bottom:1px dotted #000;
+}
+.btn_shou{
+    margin-top: 5px;
+}
+/*p{font-size:12px;}*/
+dt{
+    font-size:14px;
+    font-family:"微软雅黑";
+    font-weight:bold;
+    /*border-bottom:1px dotted #000;*/
+    padding:5px 0 5px 5px;
+    margin:5px 0;
+}
+dd{
+    padding:5px 0 0 5px;
+}
+li{
+    line-height:28px;
+}
+
+.heaselect{
+    position: relative;
+    top:10px;
+}
+.select_F{
+    cursor:pointer;
+    float: left;
+    width: 130px;
+}
+/*编辑控件位置*/
+.BMapLib_Drawing{
+    display: none;
+}
+.shouzhi{
+    cursor:pointer;
+}
+/*消失画圆功能*/
+/*.BMapLib_circle{*/
+    /*display: none;*/
+/*}*/
+#showPanelBtn{
+    position:absolute;
+    display: table-cell;
+    font-size:14px;
+    top:50%;
+    margin-top:-95px;
+    right:5px;
+    width:29px;
+    padding:10px 10px;
+    color:#999;
+    cursor:pointer;
+    text-align:center;
+    height:138px;
+    background:rgba(255,255,255,0.9);
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    font-family:'微软雅黑';
+    font-weight:bold;
+}
+#panelWrap{
+    width:0px;
+    position:absolute;
+    top:0px;
+    right:0px;
+    height:100%;
+    overflow:auto;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.input_text{
+    width: 40px;
+    height: 20px;
+}
+/*左侧显示信息*/
+.show_infos{
+    padding: 5px;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 20%;
+    width: auto;
+    background-color: #FFFFFF;
+    overflow-y:scroll;
+
+}
+.shensuo{
+    float: right;
+}
+.info_clear{
+    border-radius: 5px;
+}
+/*右侧工具栏*/
+.table_wa{
+
+}
+.btn_smalie{
+    width: 50%;
+    height: 30px;
+    border:1px solid black;
+    float: left;
+    text-align: center;
+    line-height: 27px;
+    font-size: 14px;
+
+}
+.left_btn{
+    border-right:none;
+}
+.table_two{
+    display: none;
+    padding-left: 5px;
+}
+.table_one{
+    padding-left: 5px;
+}
+.quse{
+    margin-top: ;
+}
+#panelWrap{
+    position:absolute;
+    background: #FFFFFF;
+}
+.bmap_box{
+    background: rgba(225,225,225,0.5);
+    padding: 1%;
+    position: relative;
+    top:10px;
+}
+#allmap{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+/*头部盒子*/
+.choice{
+    padding: 0 15px;
+}
+/*信息区*/
+.infos{
+    float: left;
+    height: auto;
+    margin-left: 10px;
+}
+/*又浮动*/
+.updateB{
+    float: right;
+}
+.update{
+    height: 22px;
+}
+/*详情布局*/
+.fl{
+    float: left;
+    /*width: 187px;*/
+    margin-left: 10px;
+    line-height: 27px;
+}
+/*详情字体颜色*/
+.not_receive{
+    color: #f1a417;
+}
+.wait_man{
+    color:darkgreen;
+}
+.pay_order{
+    color: #f1a417;
+}
+.total_receive{
+    color: darkgreen;
+}
+.total_reception_probability{
+    color: #f1a417;
+}
+/*搜索框*/
+.select2-container--classic .select2-selection--single{
+    padding-top: 3px !important;
+}
+.heen{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(235,235,235,.8);
+    z-index: 99999;
+    display: none;
+}
+@media (min-width: 0px) and (max-width: 1280px){
+    .bmap_box {
+        height: 590px;
+        width: 100%;
+    }
+    .show_infos{
+        height: 420px;
+    }
+
+}
+@media (min-width: 1281px) and (max-width: 1430px) {
+    .bmap_box {
+        height: 650px;
+        width: 100%;
+    }
+}
+@media (min-width: 1431px) and (max-width: 1950px){
+    .bmap_box {
+        height: 905px;
+        width: 100%;
+    }
+    .show_infos{
+        height: 650px;
+    }
+}

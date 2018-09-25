@@ -1,0 +1,632 @@
+
+
+
+
+/*搜索框*/
+.select2-container--classic .select2-selection--single{
+    padding-top: 3px !important;
+}
+/*加手势*/
+.cityes_name,.to_DayMonitoring,.btn_qie,.search_citys,.clickFestival{
+    cursor: pointer;
+}
+.search_1 .select2-selection__rendered {
+    height: 40px;
+    overflow: auto !important;
+}
+.monitorW .select2-selection__rendered{
+    height: 40px ;
+    overflow: auto !important;
+}
+.foreactW .select2-selection__rendered{
+    height: 40px ;
+    overflow: auto !important;
+}
+/*动画*/
+@keyframes spanChange{
+    0%  {
+        background-color: rgba(235,153,43,1);
+    }
+    25%{
+        background-color: rgba(235,153,43,0.75);
+    }
+    50% {
+        background-color: rgba(235,153,43,0.5);
+    }
+    75% {
+        background-color: rgba(235,153,43,0.25);
+    }
+    100% {
+        background-color: rgba(235,153,43,0);
+    }
+}
+.spanChange{
+    color: #0c0c0c;
+    animation:spanChange 3s linear;
+}
+@keyframes play{
+    0%  {
+        /*transform:rotateY(0deg);*/
+        /*transform:rotateX(0deg);*/
+        transform:rotate(0deg);
+        /*transform:rotate(0deg);*/
+
+    }
+    100% {
+        /*transform:rotateY(360deg);*/
+        /*transform:rotateX(360deg);*/
+        transform:rotate(360deg);
+        /*transform:rotate(-360deg);*/
+    }
+}
+.heen_2{
+    display: none;
+    position: fixed;
+    background-color: #FFFFFF;
+    top:50%;
+    left: 55%;
+}
+    .heen_21{
+        position: absolute;
+        width: 105px;
+        height: 105px;
+        background-size: 50% 50%;
+        background:url(../static/imgs/loading/back_z.png) no-repeat;
+        /*background:url(../static/imgs/loading/s_lodingC.png) no-repeat;*/
+    }
+    .heen_22{
+        animation:play 3s linear infinite;
+        position: absolute;
+        background-size: 30% 30%;
+        left: -1px;
+        top: -1px;
+        z-index: 100;
+        width: 65px;
+        height: 65px;
+        background:url(../static/imgs/loading/loading_z.png) no-repeat;
+        /*background:url(../static/imgs/loading/s_lodingW.png) no-repeat;*/
+    }
+/*主页面布局*/
+.big_box{
+    width: 100%;
+    height:100%;
+    padding: 10px;
+
+}
+    /*数据面板*/
+    .data_brall{
+        height:auto;
+        margin: 0 auto;
+        background-color: #FFFFFF;
+    }
+        /*查询框*/
+        .search_all{
+            width: 900px;
+            position: relative;
+            height:40px ;
+            padding-top: 5px;
+           /*justify-content: space-between;*/
+        }
+        .update_time_p{
+            width: 250px;
+            position: absolute;
+            height: 25px;
+            right: 10px;
+            font-size: 14px;
+        }
+            .search_1,.search_2,.search_3,.search_4,.search_5{
+                position: absolute;
+                z-index: 200;
+            }
+            .search_3,.search_4,.search_5{
+                padding-top: 37px;
+            }
+            .search_1{
+                left: 0px;
+                top:22px;
+            }
+            .search_2{
+                left: 197px;
+                top: 14px;
+            }
+                .monitorW , .foreactW{
+                    position: absolute;
+                    top:-5px;
+
+                }
+                .monitorW{
+                    left:-11px;
+                }
+                .foreactW{
+                    left:138px;
+                }
+            .search_3{
+                right: 148px;
+                top: 1px;
+
+            }
+                .erroFont{
+                    font-size: 13px;
+                    display: none;
+                    color: red;
+                    width: 200px;
+                    position: absolute;
+                    right: 28px;
+                    bottom: -31px;
+                }
+            .search_4{
+                right: 95px;
+                top: 6px;
+
+            }
+            .search_5{
+                right: 10px;
+                top: 1px;
+            }
+            .search_citys{
+                width: 73px;
+                height: 35px;
+                border-radius: 7px;
+                line-height: 35px;
+                text-align: center;
+            }
+
+                .lang{
+                    width: 70px;
+                    height: 30px;
+                    text-align: center;
+                }
+                .select_height{
+                    height: 30px;
+                }
+            /*.flex_4{*/
+                /*flex: 1;*/
+            /*}*/
+.all_city{
+    position: relative;
+    width:900px;
+    height: 110px;
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid darkred;
+    margin-top: 47px;
+}
+/*全国名*/
+.city_tittle{
+    font-size: 20px;
+    width: 80px;
+}
+    .city_tittle_font{
+        margin-top: 40px;
+        text-align: center;
+    }
+    /*最近的节日*/
+.clickFestival{
+    width: 59px;
+    height: 20px;
+    border-radius: 7px;
+    color: #fff;
+    background: BURLYWOOD;
+    margin-top: 10px;
+}
+.showDay{
+    display: flex;
+    flex-wrap: wrap;
+}
+.oneFestival{
+    position: absolute;
+    top:83px;
+    left: 153px;
+}
+.twoFestival{
+    width: 213px;
+    height: 23px;
+    text-align: center;
+}
+.shengDay{
+    position: absolute;
+    top: 72px;
+    left: 131px;
+    background: red;
+    color: #fff;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 16px;
+}
+/*中间的数据*/
+.all_city_data , .can_2{
+    width: 650px;
+}
+    /*实时数据*/
+    .all_city_realdata{
+        display: flex;
+    }
+        .all_city_realdata_font{
+            margin-top: 25px;
+        }
+        .all_city_realdata_{
+            width: 90%;
+            padding-top: 15px;
+            margin-left: 20px;
+        }
+            .city_realdata_ul{
+                display: flex;
+                line-height: 14px;
+            }
+                .city_realdata_ul li{
+                    flex: 1;
+                }
+    /*预测数据*/
+    .all_city_forecastdata{
+        display: flex;
+        margin-top: 10px;
+    }
+        .btn_table{
+            position: relative;
+            left: 47px;
+            top: -19px;
+        }
+        .cityes_forecastdata_{
+            width: 90%;
+        }
+        .btn_qie{
+            border: 1px solid #0c0c0c;
+            width: 138px;
+            text-align: center;
+            border-top-right-radius: 10px;
+            position: absolute;
+            z-index: 200;
+            top:10px;
+        }
+        .hour_probability{
+            left:138px;
+        }
+        .yesday_data{
+            left:240px;
+        }
+        .btn_active{
+            background-color: silver;
+            color: #0c0c0c;
+        }
+        .can_3{
+            position: relative;
+        }
+        .all_city_forecastdata_{
+            margin-left: 20px;
+        }
+            .city_forecastdata_ul{
+                display: flex;
+            }
+/*最后的图表*/
+.all_city_charts{
+    position: relative;
+}
+    .charts_absoult{
+        position: absolute;
+        top:-39px;
+        left: -218px;
+    }
+
+/*城市列*/
+.cityes_lie{
+    width:900px;
+    height: 240px;
+    margin: 0 auto;
+    display: flex;
+    border-bottom: 1px solid darkred;
+}
+.city_box{
+    margin-top: 20px;
+}
+    .can_1{
+          font-size: 18px;
+          text-align: center;
+          width: 112px;
+    }
+    .cityes_name{
+        margin-top: 24px;
+        font-size: 24px;
+    }
+    .weather_name{
+        margin-top: 19px;
+    }
+    .city_forecastdata_tittle{
+        margin-top: 40px;
+    }
+    .cityes_charts_guage{
+        position: absolute;
+        right: -350px;
+    }
+.charts_line{
+    position: relative;
+    top: -8px;
+    left: -19px;
+    z-index: 199;
+}
+.LineCharts1,.map_box,.i_disp{
+    display: none;
+}
+.LineCharts1{
+    position: absolute;
+    left: 25px;
+    top: 27px;
+    width: 631px;
+    height: 134px;
+
+}
+    .wbf_1,.wbf_2{
+        display: flex;
+    }
+    .wbf_2{
+        border-top: 1px solid #cccccc;
+        padding-top: 12px;
+    }
+
+        .weatherBox{
+            width: 53px;
+            text-align: center;
+            height: 132px;
+            /*border: 1px solid red;*/
+        }
+        .weatherBox p{
+            line-height: 14px;
+            height: 15px;
+            overflow: hidden;
+        }
+
+.data_brall{
+    /*display: none;*/
+}
+
+/*底部分页切换*/
+.footter_search{
+    display: flex;
+    justify-content:flex-end;
+    margin-top: 30px;
+}
+
+.setPageDiv{
+    display: flex;
+    justify-content: space-between;
+    background: #e3e3e3;
+    height: 40px;
+    margin-top: 30px;
+}
+#pagination{
+
+    line-height: 40px;
+    text-align: right;
+}
+#pagination .active{
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    background: red;
+    font-size: 14px;
+    padding: 3px 4px;
+    margin-right: 10px;
+}
+#pagination a,#pagination span{
+    border: 1px solid #cdcdcd;
+    background: #fff;
+    font-size: 14px;
+    padding: 3px 4px;
+    color: #000;
+    margin-right: 10px;
+}
+#pagination a.jump-btn{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+#pagination input{
+    height: 18px;
+    line-height:18px;
+    width: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 0px) and (max-width: 1280px){
+    .data_brall{
+        width:900px;
+    }
+    .font_weather{
+        font-size: 13px;
+    }
+
+}
+@media (min-width: 1281px) and (max-width: 1430px) {
+    .data_brall{
+        width:900px;
+    }
+    .font_weather{
+        font-size: 18px;
+    }
+}
+@media (min-width: 1431px) and (max-width: 1950px){
+    .data_brall{
+        width:900px;
+    }
+
+    .cityes_charts_guage{
+        position: absolute;
+        left: -238px;
+        top: 17px;
+    }
+}
+
+.i_style{
+    width: 47px;
+    height: 48px;
+    display: inline-block;
+}
+/*扬沙*/
+.blowing_sand{
+    background: url(../static/imgs/weather_48/blowing_sand.png) no-repeat;
+}
+/*阵雨*/
+.shower{
+    background: url(../static/imgs/weather_48/shower.png) no-repeat;
+}
+/*雷阵雨*/
+.thunder_shower{
+    background: url(../static/imgs/weather_48/thunder_shower.png) no-repeat;
+}
+/*中雨*/
+.moderate_rain{
+    background: url(../static/imgs/weather_48/moderate_rain.png) no-repeat;
+}
+/*小雨*/
+.smll_rain{
+    background: url(../static/imgs/weather_48/smll_rain.png) no-repeat;
+}
+/*雨夹雪*/
+.sleet{
+    background: url(../static/imgs/weather_48/sleet.png) no-repeat;
+}
+/*晴天*/
+.clear_day{
+    background: url(../static/imgs/weather_48/clear_day.png) no-repeat;
+}
+/*多云*/
+.cloudy_day{
+    background: url(../static/imgs/weather_48/cloudy_day.png) no-repeat;
+}
+/*雾*/
+.fog_day{
+    background: url(../static/imgs/weather_48/fog_day.png) no-repeat;
+}
+/*霾*/
+.haze_day{
+    background: url(../static/imgs/weather_48/haze_day.png) no-repeat;
+}
+/*雨*/
+.rain_day{
+    background: url(../static/imgs/weather_48/big_rain.png) no-repeat;
+}
+/*大雨*/
+.big_rain{
+    background: url(../static/imgs/weather_48/big_rain.png) no-repeat;
+}
+/*阴天*/
+.shade_day{
+    background: url(../static/imgs/weather_48/shade_day.png) no-repeat;
+}
+/*雪*/
+.snow_day{
+    background: url(../static/imgs/weather_48/snow_day.png) no-repeat;
+}
+/*浮尘*/
+.smoke_day{
+    background: url(../static/imgs/weather_48/smoke_day.png) no-repeat;
+}
+/*暴雨*/
+.rainstorm{
+    background: url(../static/imgs/weather_48/rainstorm.png) no-repeat;
+}
+                    /*16px*/
+.i_style_{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*扬沙*/
+.blowing_sand_{
+    background: url(../static/imgs/weather/blowing_sand.png) no-repeat;
+}
+/*阵雨*/
+.shower_{
+    background: url(../static/imgs/weather/shower.png) no-repeat;
+}
+/*雷阵雨*/
+.thunder_shower_{
+    background: url(../static/imgs/weather/thunder_shower.png) no-repeat;
+}
+/*中雨*/
+.moderate_rain_{
+    background: url(../static/imgs/weather/moderate_rain.png) no-repeat;
+}
+/*小雨*/
+.smll_rain_{
+    background: url(../static/imgs/weather/smll_rain.png) no-repeat;
+}
+/*雨夹雪*/
+.sleet_{
+    background: url(../static/imgs/weather/sleet.png) no-repeat;
+}
+/*晴天*/
+.clear_day_{
+    background: url(../static/imgs/weather/clear_day.png) no-repeat;
+}
+/*多云*/
+.cloudy_day_{
+    background: url(../static/imgs/weather/cloudy_day.png) no-repeat;
+}
+/*雾*/
+.fog_day_{
+    background: url(../static/imgs/weather/fog_day.png) no-repeat;
+}
+/*霾*/
+.haze_day_{
+    background: url(../static/imgs/weather/haze_day.png) no-repeat;
+}
+/*雨*/
+.rain_day_{
+    background: url(../static/imgs/weather/big_rain.png) no-repeat;
+}
+/*大雨*/
+.big_rain_{
+    background: url(../static/imgs/weather/big_rain.png) no-repeat;
+}
+/*阴天*/
+.shade_day_{
+    background: url(../static/imgs/weather/shade_day.png) no-repeat;
+}
+/*雪*/
+.snow_day_{
+    background: url(../static/imgs/weather/snow_day.png) no-repeat;
+}
+/*浮尘*/
+.smoke_day_{
+    background: url(../static/imgs/weather/smoke_day.png) no-repeat;
+}
+/*暴雨*/
+.rainstorm_{
+    background: url(../static/imgs/weather/rainstorm.png) no-repeat;
+}
+
+
+
+
+

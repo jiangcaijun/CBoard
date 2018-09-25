@@ -1,0 +1,1079 @@
+*{
+	margin:0;
+	padding: 0;
+}
+.box{
+	background-color: rgba(231,237,243,1);
+	border:none;
+}
+.len1{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	/*background: url(logo.png) no-repeat;*/
+	background-size: 100%;
+	/*background-color: #3ebbff;*/
+	/*background:-webkit-gradient(linear,0 0 ,0 100%，from(#7BC3FF), to(#7BC3FF));*/
+	-webkit-animation:bbb 2.5s linear 1;
+	-webkit-animation-fill-mode:both;
+}
+/*.len img{
+	width: 100%;
+	height: 100%;
+}*/
+.select2-container--classic .select2-selection--single{
+	padding-top: 3px !important;
+}
+.select2-search__field{
+	background-color: #eceff4 !important;
+}
+@keyframes aaa{
+	0%  {right:0; }
+	10%  {right:0; }
+	20% {right:0; }
+	40% {right:25%; }
+	60%{right:50%; }
+	80%{right:75%; }
+	100%{right:100%; }
+
+}
+@keyframes bbb{
+	0%  {opacity:1; }
+	10%  {opacity:1; }
+	20% {opacity:0.8; }
+	40% {opacity:0.6; }
+	60%{opacity:0.4; }
+	80%{opacity:0.2; }
+	100%{right:100%; }
+
+}
+.Triangle-down{
+	width: 10px;
+	height: 13px;
+	/*background: red;*/
+	display: inline-block;
+	/*!*margin-right: 3px;*!*/
+	/*clip-path: polygon(100% 0,50% 100%,0 0);*/
+	background:url(imgs/xj.png) no-repeat;
+}
+.Triangle{
+	width: 10px;
+	height: 13px;
+	/*background: #60a332;*/
+	display: inline-block;
+	/*margin-right: 3px;			*/
+	/*clip-path: polygon(3.5px 0px,100% 100%,0 100%);*/
+	background:url(imgs/ss.png) no-repeat;
+}
+.title{
+	position: absolute;
+	top:35px;
+	left: 50%;
+	margin-left: -5%;
+}
+.title p{
+	font-size: 30px;
+	text-align: center;
+	/*margin-top: 10px;*/
+}
+.box .time{
+	position: absolute;
+	height: 33px;
+	/*border-radius: 10px;*/
+	/*border:none;*/
+	text-align: center;
+	/*background-color: rgba(231,237,243,1);*/
+}
+.box .select_city_f{
+	position: absolute;
+}
+
+.box-3 .tc{
+	display: none;
+	position: absolute;
+	width: 112px;
+	height: 17px;
+	color: #0c0c0c;
+	font-size: 9px;
+	text-align: center;
+	background-color: rgba(201,201,201,0.5);
+	border-radius: 5px;
+}
+@media (min-width: 0px) and (max-width: 1444px) {
+	.boxhed{
+		display: none;
+		position: absolute;
+		z-index:11111;
+		width: 100%;
+		height:600px;
+		background:#ecf0f5;
+		opacity: 0.5;
+	}
+	.boxhed_font{
+		margin-left: 37%;
+		margin-top: 8%;
+		font-size: 30px;
+		color: red;
+	}
+	.box{
+		background: url(imgs/zhzb.png) no-repeat;
+		width: 1100px;
+		height: 650px;
+		background-size: 100%;
+		margin: auto;
+		position: relative;
+		/*top: 10%;*/
+	}
+	.box .time{
+		left: 80px;
+		top:-14px;
+	}
+	.box .select_city_f{
+		left: 209px;
+		top:-13px;
+	}
+	.box .hidens{
+		position: absolute;
+		background: url(imgs/white.png) no-repeat ;
+		background-size: 80%;
+		top: 112px;
+		left: -14px;
+		z-index: 100;
+		width: 389px;
+		height: 392px;
+	}
+	#webf{
+		position: absolute;
+		background: #ecf0f5;
+		width:100px;
+		height:60px;
+		left: 621px;
+		/*top:10px;*/
+		z-index:101;
+	}
+	.right-1{
+		position: absolute;
+		left: 104px;
+		top: 182px;
+		line-height: 7px;
+	}
+	.right-1 .yuan{
+		font-size: 14px;
+	}
+	.right-1 .yuan-b{
+		font-size: 12px;
+		margin-left: 5px;
+	}
+	/*左下*/
+	.left-down{
+		position: absolute;
+		left: 31px;
+		bottom: 262px;
+		font-size: 14px;
+	}
+	.fang{
+		position: absolute;
+		width: 52px;
+		height: 40px;
+	}
+	/*中间大圆*/
+	.big-center{
+		position: relative;
+		width: 350px;
+		height: 280px;
+		top: 141px;
+		left: 191px;
+		color: #fff;
+	}
+	/*支付用户*/
+	.big-center .payment{
+		position: absolute;
+		top: 124px;
+		left: 151px;
+		width: 91px;
+		height: 50px;
+		text-align: center;
+		line-height: 16px;
+	}
+	.big-center .payment .payment-num{
+		font-size: 22px;
+	}
+	.big-center .payment .payment-b{
+		font-size: 14px;
+	}
+	/*老用户*/
+	.big-center .olduser{
+		position: absolute;
+		bottom: 15px;
+		left: 160px;
+		width: 84px;
+		height: 40px;
+		text-align: center;
+		line-height: 11px;
+	}
+	.big-center .olduser .olduser-num{
+		font-size: 16px;
+	}
+	.big-center .olduser .olduser-b{
+		font-size: 14px;
+	}
+	/*注册且支付用户*/
+	.big-center .register{
+		position: absolute;
+		top: 107px;
+		left: 80px;
+		width: 58px;
+		height: 33px;
+		text-align: center;
+		line-height: 7px;
+	}
+	.big-center .register .register-num{
+		font-size: 14px;
+	}
+	.big-center .register .register-b{
+		font-size: 12px;
+	}
+	/*沉默注册且支付用户*/
+	.big-center .silent{
+		position: absolute;
+		top: 184px;
+		left: 88px;
+		width: 52px;
+		height: 35px;
+		text-align: center;
+		line-height: 8px;
+	}
+	.big-center .silent .silent-num{
+		font-size: 14px;
+	}
+	.big-center .silent .silent-b{
+		font-size: 12px;
+	}
+	/*转化率(大)*/
+	.big-center .rate{
+		position: absolute;
+		top: 85px;
+		left: 19px;
+		width: 49px;
+		height: 35px;
+		text-align: center;
+		color: #000;
+		/*line-height: 17px;*/
+	}
+	.big-center .rate .rate-num{
+		font-size: 15px;
+	}
+	/*.big-center .silent .silent-b{
+        font-size: 12px;
+    }*/
+	/*近30天沉默注册且支付用户*/
+	.big-center .jin{
+		position: absolute;
+		top: 174px;
+		left: 4px;
+		width: 50px;
+		height: 35px;
+		text-align: center;
+		/*line-height: 17px;*/
+	}
+	.big-center .jin .jin-num{
+		font-size: 12px;
+	}
+	/*.big-center .silent .silent-b{
+        font-size: 12px;
+    }*/
+	/*30天前*/
+	.big-center .thirty{
+		position: absolute;
+		top: 233px;
+		left: 26px;
+		width: 55px;
+		height: 35px;
+		text-align: center;
+		/*line-height: 17px;*/
+	}
+	.big-center .thirty .thirty-num{
+		font-size: 12px;
+	}
+	/*.big-center .silent .silent-b{
+        font-size: 12px;
+    }*/
+	/*转化率(小)*/
+	.big-center .rates{
+		position: absolute;
+		top: 180px;
+		left: -50px;
+		width: 55px;
+		height: 35px;
+		text-align: center;
+		color: #000;
+		/*line-height: 17px;*/
+	}
+	.big-center .rates .rates-num{
+		font-size: 13px;
+	}
+	/*.big-center .silent .silent-b{
+        font-size: 12px;
+    }*/
+
+	/*第三个区块*/
+	.box-31{
+		position: absolute;
+		width: 278px;
+		height: 450px;
+		top: 77px;
+		left: 560px;
+		color: #fff;
+	}
+	.box-3{
+		position: relative;
+		width: 278px;
+		height: 450px;
+		top: 0;
+		left: 0;
+		color: #fff;
+	}
+	/*派单取消率*/
+	.ancelq{
+		left: 99px;
+		top: -6px;
+		color: #000;
+	}
+	/*未播单率*/
+	.noplay{
+		left: 99px;
+		top: -69px;
+		color: #000;
+	}
+	/*抢单接单率*/
+	.grabj{
+		left: 101px;
+		top: 290px;
+		color: #000;
+	}
+	/*派单拒单率*/
+	.grabq{
+		left: 99px;
+		top: 59px;
+		color: #000;
+	}
+	/*接单率*/
+	.box-31 .box-3 .jiedan{
+		width: 50px;
+		height: 35px;
+		left: 200px;
+		top: 289px;
+		color: #fff;
+		line-height: 13px;
+	}
+	.box-31 .box-3 .jiedan .jdl{
+		font-size: 9px;
+	}
+	/*取消率*/
+	.box-31 .box-3 .quxiao{
+		width: 50px;
+		height: 35px;
+		left: 200px;
+		top: 340px;
+		color: #fff;
+		line-height: 13px;
+	}
+	.box-31 .box-3 .quxiao .qxl{
+		font-size: 9px;
+	}
+	/*供需比*/
+	.box-31 .box-3 .supply{
+		width: 50px;
+		height: 35px;
+		left: 176px;
+		top: 346px;
+		color: #000;
+		line-height: 13px;
+	}
+	/*支付订单数*/
+	.box-31 .box-3 .payment{
+		position: absolute;
+		top: 197px;
+		left: -21px;
+		width: 80px;
+		height: 55px;
+		text-align: center;
+		line-height: 9px;
+	}
+	.box-31 .box-3 .payment .payment-num{
+		font-size: 16px;
+	}
+	.box-31 .box-3 .payment .payment-b{
+		font-size: 12px;
+	}
+	/*完成率*/
+	.box-31 .box-3 .complete{
+		position: absolute;
+		top: 200px;
+		left: 171px;
+		width: 74px;
+		height: 55px;
+		text-align: center;
+	}
+	.box-31 .box-3 .complete .complete-num{
+		font-size: 20px;
+	}
+	/*.box-31 .box-3 .complete .complete-b{
+        font-size: 12px;
+    }*/
+	/*派单*/
+	.box-31 .box-3 .dispatch{
+		position: absolute;
+		top: 163px;
+		left: 73px;
+		width: 81px;
+		height: 40px;
+		text-align: center;
+		line-height: 10px;
+	}
+	.box-31 .box-3 .dispatch .dispatch-num{
+		font-size: 15px;
+	}
+	.box-31 .box-3 .dispatch .dispatch-b{
+		font-size: 14px;
+	}
+	/*抢单*/
+	.box-31 .box-3 .rob{
+		position: absolute;
+		top: 210px;
+		left: 77px;
+		width: 78px;
+		height: 30px;
+		text-align: center;
+		line-height: 10px;
+	}
+	.box-31 .box-3 .rob .rob-num{
+		font-size: 15px;
+	}
+	.box-31 .box-3 .rob .rob-b{
+		font-size: 14px;
+	}
+	/*右侧两圆 上*/
+	.z-rightup{
+		position: absolute;
+		width: 304px;
+		height: 120px;
+		right:-97px;
+		top: 225px;
+	}
+	.z-rightup .posd{
+		position: relative;
+	}
+	.z-rightup .posd .heng{
+		position: absolute;
+		width: 214px;
+		height: 35px;
+		display: flex;
+
+	}
+	.z-rightup .posd .one{
+		top: 9px;
+		left: 101px;
+	}
+	.z-rightup .posd .heng .fl2{
+		flex: 1;
+		color: #fff;
+		font-size: 12px;
+
+	}
+	.z-rightup .posd .heng .gu{
+		flex: 0.8;
+		font-size: 15px;
+	}
+	.z-rightup .posd .two{
+		top: 41px;
+		left: 83px;
+	}
+	.z-rightup .posd .two .merch .merch-num{
+		margin-left: 20px;
+	}
+	.z-rightup .posd .three{
+		top: 72px;
+		left: 102px;
+	}
+	/*完成单*/
+	.z-rightup .posd .wanc{
+		position: absolute;
+		top: 47px;
+		left: 11px;
+		width: 80px;
+		height: 45px;
+		text-align: center;
+		color: #fff;
+		line-height: 16px;
+	}
+	.z-rightup .posd .wanc-num{
+		font-size: 20px;
+
+	}
+	.z-rightup .posd .wanc-b{
+		font-size: 14px;
+	}
+	/*下面的圆*/
+	.z-rightdown{
+		position: absolute;
+		width: 277px;
+		height: 120px;
+		right:-17px;
+		top: 403px;
+	}
+	.z-rightdown .posdo{
+		position: relative;
+	}
+	.z-rightdown .posdo .heng{
+		position: absolute;
+		width: 214px;
+		height: 26px;
+		display: flex;
+
+	}
+	.z-rightdown .posdo .one{
+		top: 16px;
+		left: 101px;
+	}
+	.z-rightdown .posdo .heng .fl2{
+		flex: 1;
+		color: #fff;
+		font-size: 12px;
+
+	}
+	.z-rightdown .posdo .heng .gu{
+		flex: 1.4;
+		font-size: 15px;
+	}
+	.z-rightdown .posdo .two{
+		top: 66px;
+		left: 101px;
+	}
+
+	/*活跃闪送员*/
+	.z-rightdown .posdo .act{
+		position: absolute;
+		top: 42px;
+		left: 23px;
+		width: 70px;
+		height: 45px;
+		text-align: center;
+		color: #000;
+		line-height: 16px;
+	}
+	.z-rightdown .posdo .act-num{
+		font-size: 17px;
+
+	}
+	.z-rightdown .posdo .act-b{
+		font-size: 12px;
+	}
+}
+
+@media (min-width: 1445px) and (max-width: 1950px){
+	.boxhed{
+		display: none;
+		position: absolute;
+		z-index:11111;
+		width: 100%;
+		height:1900px;
+		background:#ecf0f5;
+		opacity: 0.5;
+	}
+	.boxhed_font{
+		margin-left: 39%;
+		margin-top: 6%;
+		font-size: 40px;
+		color: red;
+	}
+	.box{
+		background: url(imgs/zhzb.png) no-repeat;
+		width: 1520px;
+		height: 832px;
+		background-size: 100%;
+		margin: auto;
+		position: relative;
+		/*top: 0px;*/
+	}
+	.box .time{
+		left: 80px;
+		top:-14px;
+	}
+	.box .select_city_f{
+		left: 209px;
+		top:-13px;
+	}
+	.box .hidens{
+		position: absolute;
+		background: url(imgs/white.png) no-repeat ;
+		background-size: 100%;
+		top: 168px;
+		left: -4px;
+		z-index: 100;
+		width: 410px;
+		height: 423px;
+	}
+	#webf{
+		position: absolute;
+		background: #ecf0f5;
+		width:135px;
+		height:83px;
+		left: 859px;
+		/*top:10px;*/
+		z-index:101;
+	}
+	.font-write{
+		color: #fff;
+		font-size: 12px;
+		margin-left: 5px;
+	}
+	.right-1{
+		position: absolute;
+		left: 146px;
+		top: 250px;
+		line-height: 14px;
+		text-align: center;
+	}
+	.right-1 .yuan{
+		font-size: 20px;
+	}
+	.right-1 .yuan-b{
+		font-size: 12px;
+		margin-left: 5px;
+	}
+	/*左下*/
+	.left-down{
+		position: absolute;
+		left: 50px;
+		bottom: 303px;
+		font-size: 20px;
+	}
+	/*右俩*/
+	/*方块公共样式*/
+	.fang{
+		position: absolute;
+		width: 70px;
+		height: 40px;
+	}
+	.jing{
+		font-size: 12px;
+		text-align: right;
+	}
+	.jing-c{
+		text-align: center;
+		margin-top: 5px;
+		font-size: 18px;
+	}
+	.complaint{
+		right: 157px;
+		top: 59px;
+	}
+
+	.cpo{
+		right: 49px;
+		top: 59px;
+	}
+	/*中间大圆*/
+	.big-center{
+		position: relative;
+		width: 350px;
+		height: 280px;
+		top: 257px;
+		left: 314px;
+		color: #fff;
+	}
+	/*支付用户*/
+	.big-center .payment{
+		position: absolute;
+		top: 117px;
+		left: 170px;
+		width: 100px;
+		height: 50px;
+		text-align: center;
+		line-height: 20px;
+	}
+	.big-center .payment .payment-num{
+		font-size: 22px;
+	}
+	.big-center .payment .payment-b{
+		font-size: 14px;
+	}
+	/*老用户*/
+	.big-center .olduser{
+		position: absolute;
+		bottom: -22px;
+		left: 178px;
+		width: 100px;
+		height: 50px;
+		text-align: center;
+		line-height: 16px;
+	}
+	.big-center .olduser .olduser-num{
+		font-size: 18px;
+	}
+	.big-center .olduser .olduser-b{
+		font-size: 14px;
+	}
+	/*注册且支付用户*/
+	.big-center .register{
+		position: absolute;
+		top: 91px;
+		left: 64px;
+		width: 65px;
+		height: 45px;
+		text-align: center;
+		line-height: 12px;
+	}
+	.big-center .register .register-num{
+		font-size: 17px;
+	}
+	.big-center .register .register-b{
+		font-size: 12px;
+	}
+	/*沉默注册且支付用户*/
+	.big-center .silent{
+		position: absolute;
+		top: 192px;
+		left: 75px;
+		width: 55px;
+		height: 35px;
+		text-align: center;
+		line-height: 12px;
+	}
+	.big-center .silent .silent-num{
+		font-size: 17px;
+	}
+	.big-center .silent .silent-b{
+		font-size: 12px;
+	}
+	/*转化率(大)*/
+	.big-center .rate{
+		position: absolute;
+		top: 56px;
+		left: -19px;
+		width: 55px;
+		height: 35px;
+		text-align: center;
+		color: #000;
+		/*line-height: 17px;*/
+	}
+	.big-center .rate .rate-num{
+		font-size: 18px;
+	}
+	/*.big-center .silent .silent-b{
+        font-size: 12px;
+    }*/
+	/*近30天沉默注册且支付用户*/
+	.big-center .jin{
+		position: absolute;
+		top: 180px;
+		left: -37px;
+		width: 55px;
+		height: 35px;
+		text-align: center;
+		/*line-height: 17px;*/
+	}
+	.big-center .jin .jin-num{
+		font-size: 14px;
+	}
+	/*.big-center .silent .silent-b{
+        font-size: 12px;
+    }*/
+	/*30天前*/
+	.big-center .thirty{
+		position: absolute;
+		top: 264px;
+		left: -3px;
+		width: 55px;
+		height: 35px;
+		text-align: center;
+		/*line-height: 17px;*/
+	}
+	.big-center .thirty .thirty-num{
+		font-size: 17px;
+	}
+	/*.big-center .silent .silent-b{
+        font-size: 12px;
+    }*/
+	/*转化率(小)*/
+	.big-center .rates{
+		position: absolute;
+		top: 189px;
+		left: -108px;
+		width: 55px;
+		height: 35px;
+		text-align: center;
+		color: #000;
+		/*line-height: 17px;*/
+	}
+	.big-center .rates .rates-num{
+		font-size: 16px;
+	}
+	/*.big-center .silent .silent-b{
+        font-size: 12px;
+    }*/
+
+	/*第三个区块*/
+	.box-31{
+		position: absolute;
+		width: 379px;
+		height: 648px;
+		top: 0px;
+		left: 751px;
+		color: #fff;
+	}
+	.box-3{
+		position: relative;
+		width: 379px;
+		height: 648px;
+		top: 0;
+		left: 0;
+		color: #fff;
+	}
+	/*派单取消率*/
+	.ancelq{
+		left: 143px;
+		top: 108px;
+		color: #000;
+	}
+	/*未播单率*/
+	.noplay{
+		left: 143px;
+		top: 15px;
+		color: #000;
+	}
+	/*抢单接单率*/
+	.grabj{
+		left: 143px;
+		top: 513px;
+		color: #000;
+	}
+	/*派单拒单率*/
+	.grabq{
+		left: 143px;
+		top: 199px;
+		color: #000;
+	}
+	/*接单率*/
+	.box-31 .box-3 .jiedan{
+		width: 57px;
+		height: 35px;
+		left: 294px;
+		top: 510px;
+		color: #fff;
+		line-height: 15px;
+	}
+	/*取消率*/
+	.box-31 .box-3 .quxiao{
+		width: 57px;
+		height: 35px;
+		left: 298px;
+		top: 580px;
+		color: #fff;
+		line-height: 15px;
+	}
+	/*支付订单数*/
+	.box-31 .box-3 .payment{
+		position: absolute;
+		top: 376px;
+		left: -2px;
+		width: 91px;
+		height: 55px;
+		text-align: center;
+		line-height: 22px;
+	}
+	.box-31 .box-3 .payment .payment-num{
+		font-size: 20px;
+	}
+	.box-31 .box-3 .payment .payment-b{
+		font-size: 12px;
+	}
+	/*完成率*/
+	.box-31 .box-3 .complete{
+		position: absolute;
+		top: 389px;
+		left: 259px;
+		width: 91px;
+		height: 55px;
+		text-align: center;
+	}
+	.box-31 .box-3 .complete .complete-num{
+		font-size: 20px;
+	}
+	/*.box-31 .box-3 .complete .complete-b{
+        font-size: 12px;
+    }*/
+	/*派单*/
+	.box-31 .box-3 .dispatch{
+		position: absolute;
+		top: 324px;
+		left: 129px;
+		width: 85px;
+		height: 50px;
+		text-align: center;
+	}
+	.box-31 .box-3 .dispatch .dispatch-num{
+		font-size: 15px;
+	}
+	.box-31 .box-3 .dispatch .dispatch-b{
+		font-size: 18px;
+	}
+	/*抢单*/
+	.box-31 .box-3 .rob{
+		position: absolute;
+		top: 395px;
+		left: 130px;
+		width: 85px;
+		height: 50px;
+		text-align: center;
+	}
+	.box-31 .box-3 .rob .rob-num{
+		font-size: 15px;
+	}
+	.box-31 .box-3 .rob .rob-b{
+		font-size: 18px;
+	}
+	/*右侧两圆 上*/
+	.z-rightup{
+		position: absolute;
+		width: 310px;
+		height: 120px;
+		right:-2px;
+		top: 326px;
+	}
+	.z-rightup .posd{
+		position: relative;
+	}
+	.z-rightup .posd .heng{
+		position: absolute;
+		width: 224px;
+		height: 35px;
+		display: flex;
+	}
+	.z-rightup .posd .one{
+		top: 3px;
+		left: 175px;
+	}
+	.z-rightup .posd .heng .fl2{
+		flex: 2;
+		color: #fff;
+		font-size: 14px;
+	}
+	.z-rightup .posd .heng .gu{
+		flex: 1;
+		font-size: 15px;
+	}
+	.z-rightup .posd .two{
+		top: 51px;
+		left: 85px;
+	}
+	.z-rightup .posd .two .merch .merch-num{
+		margin-left: 20px;
+	}
+	.z-rightup .posd .three{
+		top: 87px;
+		left: 179px;
+	}
+	/*完成单*/
+	.z-rightup .posd .wanc{
+		position: absolute;
+		top: 53px;
+		left: 45px;
+		width: 80px;
+		height: 45px;
+		text-align: center;
+		color: #fff;
+		line-height: 20px;
+	}
+	.z-rightup .posd .wanc-num{
+		font-size: 20px;
+
+	}
+	.z-rightup .posd .wanc-b{
+		font-size: 14px;
+	}
+	/*下面的圆*/
+	.z-rightdown{
+		position: absolute;
+		width: 310px;
+		height: 120px;
+		right:8px;
+		top: 547px;
+	}
+	.z-rightdown .posdo{
+		position: relative;
+	}
+	.z-rightdown .posdo .heng{
+		position: absolute;
+		width: 214px;
+		height: 35px;
+		display: flex;
+
+	}
+	.z-rightdown .posdo .one{
+		top: 17px;
+		left: 101px;
+	}
+	.z-rightdown .posdo .heng .fl2{
+		flex: 2;
+		color: #fff;
+		font-size: 14px;
+
+	}
+	.z-rightdown .posdo .heng .gu{
+		flex: 1;
+		font-size: 15px;
+	}
+	.z-rightdown .posdo .two{
+		top: 85px;
+		left: 101px;
+	}
+	/*活跃闪送员*/
+	.z-rightdown .posdo .act{
+		position: absolute;
+		top: 53px;
+		left: 6px;
+		width: 80px;
+		height: 45px;
+		text-align: center;
+		color: #000;
+		line-height: 16px;
+	}
+	.z-rightdown .posdo .act-num{
+		font-size: 20px;
+
+	}
+	.z-rightdown .posdo .act-b{
+		font-size: 14px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

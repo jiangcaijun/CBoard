@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="org/cboard/view/custom/Capacity/Capacity.css">
+	<link href="org/cboard/view/custom/static/css/select2.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="boxhed">
+	<p class="boxhed_font">暂无数据.....</p>
+	<p class="setTime_out"></p>
+</div>
+<div style="padding-top: 140px; padding-right: 70px; position: relative">
+	<div class="title">
+		<p>运营体系概览</p>
+	</div>
+	<div class="box" id="box">
+
+		<div>
+			<input type="text" id="time" class="time" onfocus="" style="width: 100px" onchange="changer()">
+		</div>
+		<div class="select_city_f">
+			<select class="select2 select_city js-example-basic-multiple js-states form-control"
+					onchange="changer()"
+					style="width: 90px;height: 20px;background: rgba(231,237,243,1);">
+				<option value="0">中国</option>
+			</select>
+		</div>
+		<div class="Capacity_data">
+
+		</div>
+	</div>
+</div>
+<script src="org/cboard/view/custom/static/js/select2.min.js"></script>
+<script src="org/cboard/view/custom/Capacity/Capacity.js"></script>
+<script>
+    var data_push = function () {
+        var data_json = 'ext/getDataset.do';
+        var select_id = $('.select_city').val();
+        var timer = $('#time').val().replace(/-/g,'');
+//        console.log(select_id,timer);
+        $.post(data_json,{
+            dsCode:'d9f55006-68a0-11e8-8d49-73c9989d4999',
+            params:"{city_id:'"+ select_id +"',dt_ymd:'"+ timer +"'}"
+        },function (datas) {
+			if(datas.status == 2){
+                $('.boxhed').css("display","block");
+                setTimeout(function () {
+                    $('.boxhed').css("display","none");
+                },3000)
+			}else {
+                var data_ = eval('('+ datas.msg +')');
+                var data = data_[0];
+//                console.log(data,select_id,timer)
+					let strs = `
+						<!--第一个圆-->
+						<div class="one_circular">
+						<!--活跃闪送员-->
+						<div class="hyssy posabl">
+						<p class="hyssy-num font-big"><b>${filter_number(data.grab_courier_cnt)}</b></p>
+						<p class="hyssy-b"><i class="${check(data.grab_courier_cnt_increm_ind)}"></i>${small_number(data.grab_courier_cnt_increm)}</p>
+						</div>
+						<!--非首单闪送员-->
+						<div class="fsdssy posabl">
+						<p class="fsdssy-num"><b>${filter_number(data.not_first_grab_courier_cnt)}</b></p>
+						<p class="fsdssy-b"><i class="${check(data.not_first_grab_courier_cnt_increm_ind)}"></i>${small_number(data.not_first_grab_courier_cnt_increm)}</p>
+						</div>
+						<!--首单闪送员-->
+						<div class="sdssy posabl">
+						<p class="sdssy-num"><b>${filter_number(data.first_grab_courier_cnt)}</b></p>
+						<p class="sdssy-b"><i class="${check(data.first_grab_courier_cnt_increm_ind)}"></i>${small_number(data.first_grab_courier_cnt_increm)}</p>
+						</div>
+						<!--注册7日以下下单首闪送员-->
+						<div class="zcqrx posabl">
+						<p class="zcqrx-num"><b>${filter_number(data.near7_first_grab_courier_cnt)}</b></p>
+						<p class="zcqrx-b"><i class="${check(data.near7_first_grab_courier_cnt_increm_ind)}"></i>${small_number(data.near7_first_grab_courier_cnt_increm)}</p>
+						</div>
+						<!--注册7日以上下单首闪送员-->
+						<div class="zcqrs posabl">
+						<p class="zcqrs-num"><b>${filter_number(data.bf7_first_grab_courier_cnt)}</b></p>
+						<p class="zcqrs-b"><i class="${check(data.bf7_first_grab_courier_cnt_increm_ind)}"></i>${small_number(data.bf7_first_grab_courier_cnt_increm)}</p>
+						</div>
+						</div>
+						<div class="two-fa">
+						<div class="two-up">
+						<!--完单闪送员-->
+						<div class="wadssy posabl">
+						<p class="wadssy-num"><b>${filter_number(data.finish_courier_cnt)}</b></p>
+						<p class="wadssy-b fontbig"><i class="${check(data.finish_courier_cnt_increm_ind)}"></i>${small_number(data.finish_courier_cnt_increm)}</p>
+						</div>
+						<!--抢单活跃闪送员-->
+						<div class="qdhyssy posabl">
+						<p class="qdhyssy-num"><b>${filter_number(data.compete_courier_cnt)}</b></p>
+						<p class="qdhyssy-b"><i class="${check(data.compete_courier_cnt_increm_ind)}"></i>${small_number(data.compete_courier_cnt_increm)}</p>
+						</div>
+						<!--派单活跃闪送员-->
+						<div class="pdhyssy posabl">
+						<p class="pdhyssy-num"><b>${filter_number(data.assign_courier_cnt)}</b></p>
+						<p class="pdhyssy-b"><i class="${check(data.assign_courier_cnt_increm_ind)}"></i>${small_number(data.assign_courier_cnt_increm)}</p>
+						</div>
+						<!--IPH-->
+						<p class="iph posabl">
+						<span class="iph-num">${filter_number(data.iph)}</span>&nbsp
+						<span class="iph-b"><i class="${check(data.iph_increm_ind)}"></i>${small_number(data.iph_increm)}</span>
+						</p>
+						<!--核心层闪送员-->
+						<p class="hxcssy posabl">
+						<span class="hxcssy-num">${filter_number(data.core_courier_cnt)}</span>&nbsp
+						<span class="hxcssy-b"><i class="${check(data.core_courier_cnt_increm_ind)}"></i>${small_number(data.core_courier_cnt_increm)}</span>
+						</p>
+						</div>
+						<div class="two-down">
+						<!--奖励闪送员-->
+						<div class="jlssy posabl">
+						<p class="jlssy-num"><b>${filter_number(data.award_courier_cnt)}</b></p>
+						<p class="jlssy-b"><i class="${check(data.award_courier_cnt_increm_ind)}"></i>${small_number(data.award_courier_cnt_increm)}</p>
+						</div>
+						<!--封禁闪送员-->
+						<div class="fjssy posabl">
+						<p class="fjssy-num"><b>${filter_number(data.ban_courier_cnt)}</b></p>
+						<p class="fjssy-b"><i class="${check(data.ban_courier_increm_ind)}"></i>${small_number(data.ban_courier_increm)}</p>
+						</div>
+						<!--处罚闪送员-->
+						<div class="cfssy posabl">
+						<p class="cfssy-num"><b>${filter_number(data.punish_courier_cnt)}</b></p>
+						<p class="cfssy-b"><i class="${check(data.punish_courier_cnt_increm_ind)}"></i>${small_number(data.punish_courier_cnt_increm)}</p>
+						</div>
+						</div>
+						</div>
+						<!--留存和流失-->
+						<div class="right-our">
+						<div class="yu">
+						<div class="left yuan">
+						<p>留存闪送员数</p>
+						<span><b class="fontbig">${filter_number(data.keep_courier_cnt)}</b></span>
+						</div>
+						<div class="right yuan">
+						<p>流失闪送员数</p>
+						<span><b class="fontbig">${filter_number(data.loss_courier_cnt)}</b></span>
+						</div>
+						</div>
+						</div>
+						`
+					$('.Capacity_data').append(strs);
+				};
+    		}
+	)}
+    data_push();
+
+</script>
+</body>
+</html>

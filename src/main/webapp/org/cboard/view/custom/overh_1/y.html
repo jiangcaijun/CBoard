@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="org/cboard/view/custom/overh/hh.css">
+    <link href="org/cboard/view/custom/static/css/select2.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div style="padding-top: 140px; padding-right: 70px; position: relative">
+    <div class="title">
+        <p>综合指标概览</p>
+    </div>
+    <div class="box" id="box">
+        <input type="text" id="time" class="time" style="width: 100px" onchange="changer()">
+        <div class="select_city_f">
+            <select class="select2 select_city js-example-basic-multiple js-states form-control"
+                    onchange="changer()"
+                    style="width: 80px;height: 20px;background: rgba(231,237,243,1);">
+                <option value="全国">全国</option>
+            </select>
+        </div>
+        <!--&lt;!&ndash;注册用户数&ndash;&gt;-->
+        <!--<div class="right-1">-->
+        <!--<p class="yuan zhu"><b>18,362</b></p>-->
+        <!--<p class="yuan-b zhuB"><i class="Triangle"></i>4%</p>-->
+        <!--</div>-->
+        <!--<p class="left-down">-->
+        <!--<b>10,000</b>-->
+        <!--</p>-->
+        <!--&lt;!&ndash;中间&ndash;&gt;-->
+        <!--<div class="big-center">-->
+
+        <!--&lt;!&ndash; 支付用户数 &ndash;&gt;-->
+        <!--<div class="payment">-->
+        <!--<p class="payment-num"><b>53,682</b></p>-->
+        <!--<p class="payment-b"><i class="Triangle"></i>4%</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 老用户 &ndash;&gt;-->
+        <!--<div class="olduser">-->
+        <!--<p class="olduser-num">37,813</p>-->
+        <!--<p class="olduser-b"><i class="Triangle"></i>2%</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 注册且支付用户 &ndash;&gt;-->
+        <!--<div class="register">-->
+        <!--<p class="register-num">7,455</p>-->
+        <!--<p class="register-b"><i class="Triangle-down"></i>4%</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 沉默注册且支付用户 &ndash;&gt;-->
+        <!--<div class="silent">-->
+        <!--<p class="silent-num">8,100</p>-->
+        <!--<p class="silent-b"><i class="Triangle-down"></i>1%</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 转化率（大） &ndash;&gt;-->
+        <!--<div class="rate">-->
+        <!--<p class="rate-num">40%</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 近30天沉默注册且支付用户（中） &ndash;&gt;-->
+        <!--<div class="jin">-->
+        <!--<p class="jin-num">1,000</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 30天前（下） &ndash;&gt;-->
+        <!--<div class="thirty">-->
+        <!--<p class="thirty-num">900</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 转化率（小） &ndash;&gt;-->
+        <!--<div class="rates">-->
+        <!--<p class="rates-num">20%</p>-->
+        <!--</div>-->
+
+        <!--</div>-->
+        <!--&lt;!&ndash; 第三个区块 &ndash;&gt;-->
+        <!--<div class="box-31">-->
+        <!--<div class="box-3">-->
+        <!--&lt;!&ndash; 派单取消率 &ndash;&gt;-->
+        <!--<div class="ancelq fang">-->
+        <!--<p class="ancelq-b jing">+5%<i class="hov"><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>-->
+        <!--<p class="ancelq-cen jing-c"><b>5%</b></p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 未播单率 &ndash;&gt;-->
+        <!--<div class="noplay fang">-->
+        <!--<p class="ancelj-b jing">+5%<i><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>-->
+        <!--<p class="ancelj-cen jing-c"><b>5%</b></p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 抢单接单率 &ndash;&gt;-->
+        <!--<div class="grabj fang">-->
+        <!--<p class="grabj-b jing">+5%<i><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>-->
+        <!--<p class="grabj-cen jing-c"><b>5%</b></p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;派单拒单率 &ndash;&gt;-->
+        <!--<div class="grabq fang">-->
+        <!--<p class="grabq-b jing">+5%<i><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>-->
+        <!--<p class="grabq-cen jing-c"><b>5%</b></p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 接单率 &ndash;&gt;-->
+        <!--<div class="jiedan fang">-->
+        <!--<p class="jiedan-b jing">+5%<i><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>-->
+        <!--<p class="jiedan-cen jing-c"><b>90%</b></p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 取消率 &ndash;&gt;-->
+        <!--<div class="quxiao fang">-->
+        <!--<p class="quxiao-b jing">+5%<i><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>-->
+        <!--<p class="quxiao-cen jing-c"><b>6.5%</b></p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 支付订单数 &ndash;&gt;-->
+        <!--<div class="payment">-->
+        <!--<p class="payment-num"><b>86,172</b></p>-->
+        <!--<p class="payment-b"><i class="Triangle"></i>4%</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 完成率 &ndash;&gt;-->
+        <!--<div class="complete">-->
+        <!--<p class="complete-num"><b>40%</b></p>-->
+        <!--&lt;!&ndash; <p class="complete-b"><i class="Triangle"></i>4%</p> &ndash;&gt;-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 派单 &ndash;&gt;-->
+        <!--<div class="dispatch">-->
+        <!--<p class="dispatch-num">派<span>17,234</span></p>-->
+        <!--<p class="dispatch-b">20%</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 抢单 &ndash;&gt;-->
+        <!--<div class="rob">-->
+        <!--<p class="rob-num">抢<span>68,937</span></p>-->
+        <!--<p class="rob-b">80%</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 右侧 上&ndash;&gt;-->
+        <!--<div class="z-rightup">-->
+        <!--<div class="posd">-->
+        <!--&lt;!&ndash; 个人 &ndash;&gt;-->
+        <!--<div class="one heng">-->
+        <!--<div class="personal fl2">-->
+        <!--<span class="personal-num">56,097</span>-->
+        <!--<span class="personal-b"><i class="Triangle"></i>20%</span>-->
+        <!--</div>-->
+        <!--<p class="gu">个人&nbsp70%</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 企业 &ndash;&gt;-->
+        <!--<div class="three heng">-->
+        <!--<div class="renter fl2">-->
+        <!--<span class="renter-num">56,097</span>-->
+        <!--<span class="renter-b"><i class="Triangle-down"></i>10%</span>-->
+        <!--</div>-->
+        <!--<p class="gu">企业&nbsp10%</p>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; 完成订单数 &ndash;&gt;-->
+        <!--<div class="wanc">-->
+        <!--<p class="wanc-num">80,139</p>-->
+        <!--<p class="wanc-b"><i class="Triangle"></i>&nbsp3%</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+<script src="org/cboard/view/custom/static/js/select2.min.js"></script>
+<script src="org/cboard/view/custom/overh/hh.js"></script>
+<script>
+    var data = {
+        'per1': '0.2',
+        'val1': '23424',
+        'per2': '30%',
+        'statues1': '1',
+        'val2': '21152',
+        'per3': '20%',
+        'val3': '23424',
+        'per4': '30%',
+        'statues2': '2',
+        'statues3': '1',
+        'statues4': '4',
+        'val4': '214215'
+    };
+    let strs = `
+    <div class="right-1">
+			<p class="yuan zhu"><b>${filter_number(data.val2)}</b></p>
+			<p class="yuan-b zhuB">${small_number( data.per1)}</p>
+		</div>s
+		<p class="left-down">
+			<b>10,000</b>
+		</p>
+		<!--中间-->
+        <div class="big-center">
+        <!-- 支付用户数 -->
+        <div class="payment">
+        <p class="payment-num"><b>53,682</b></p>
+        <p class="payment-b"><i class="Triangle"></i>4%</p>
+        </div>
+        <!-- 老用户 -->
+        <div class="olduser">
+        <p class="olduser-num">37,813</p>
+        <p class="olduser-b"><i class="Triangle"></i>2%</p>
+        </div>
+        <!-- 注册且支付用户 -->
+        <div class="register">
+        <p class="register-num">7,455</p>
+        <p class="register-b"><i class="Triangle-down"></i>4%</p>
+        </div>
+        <!-- 沉默注册且支付用户 -->
+        <div class="silent">
+        <p class="silent-num">8,100</p>
+        <p class="silent-b"><i class="Triangle-down"></i>1%</p>
+        </div>
+        <!-- 转化率（大） -->
+        <div class="rate">
+        <p class="rate-num">40%</p>
+        </div>
+        <!-- 近30天沉默注册且支付用户（中） -->
+        <div class="jin">
+        <p class="jin-num">1,000</p>
+        </div>
+        <!-- 30天前（下） -->
+        <div class="thirty">
+        <p class="thirty-num">900</p>
+        </div>
+        <!-- 转化率（小） -->
+        <div class="rates">
+        <p class="rates-num">20%</p>
+        </div>
+        </div>
+        <!-- 第三个区块 -->
+        <div class="box-31">
+        <div class="box-3">
+        <!-- 派单取消率 -->
+        <div class="ancelq fang">
+        <p class="ancelq-b jing">+5%<i class="hov"><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>
+        <p class="ancelq-cen jing-c"><b>5%</b></p>
+        </div>
+        <!-- 未播单率 -->
+        <div class="noplay fang">
+        <p class="ancelj-b jing">+5%<i><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>
+        <p class="ancelj-cen jing-c"><b>5%</b></p>
+        </div>
+        <!-- 抢单接单率 -->
+        <div class="grabj fang">
+        <p class="grabj-b jing">+5%<i><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>
+        <p class="grabj-cen jing-c"><b>5%</b></p>
+        </div>
+        <!--派单拒单率 -->
+        <div class="grabq fang">
+        <p class="grabq-b jing">+5%<i><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>
+        <p class="grabq-cen jing-c"><b>5%</b></p>
+        </div>
+        <!-- 接单率 -->
+        <div class="jiedan fang">
+        <p class="jiedan-b jing">+5%<i><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>
+        <p class="jiedan-cen jing-c"><b>90%</b></p>
+        </div>
+        <!-- 取消率 -->
+        <div class="quxiao fang">
+        <p class="quxiao-b jing">+5%<i><img src="org/cboard/view/custom/overh/imgs/ycz.png" alt=""></i></p>
+        <p class="quxiao-cen jing-c"><b>6.5%</b></p>
+        </div>
+        <!-- 支付订单数 -->
+        <div class="payment">
+        <p class="payment-num"><b>86,172</b></p>
+        <p class="payment-b"><i class="Triangle"></i>4%</p>
+        </div>
+        <!-- 完成率 -->
+        <div class="complete">
+        <p class="complete-num"><b>40%</b></p>
+        <!-- <p class="complete-b"><i class="Triangle"></i>4%</p> -->
+        </div>
+        <!-- 派单 -->
+        <div class="dispatch">
+        <p class="dispatch-num">派<span>17,234</span></p>
+        <p class="dispatch-b">20%</p>
+        </div>
+        <!-- 抢单 -->
+        <div class="rob">
+        <p class="rob-num">抢<span>68,937</span></p>
+        <p class="rob-b">80%</p>
+        </div>
+        </div>
+        </div>
+        <!-- 右侧 上-->
+        <div class="z-rightup">
+        <div class="posd">
+        <!-- 个人 -->
+        <div class="one heng">
+        <div class="personal fl2">
+        <span class="personal-num">56,097</span>
+        <span class="personal-b"><i class="Triangle"></i>20%</span>
+        </div>
+        <p class="gu">个人&nbsp70%</p>
+        </div>
+        <!-- 企业 -->
+        <div class="three heng">
+        <div class="renter fl2">
+        <span class="renter-num">56,097</span>
+        <span class="renter-b"><i class="Triangle-down"></i>10%</span>
+        </div>
+        <p class="gu">企业&nbsp10%</p>
+        </div>
+
+        <!-- 完成订单数 -->
+        <div class="wanc">
+        <p class="wanc-num">80,139</p>
+        <p class="wanc-b"><i class="Triangle"></i>&nbsp3%</p>
+        </div>
+        </div>
+        </div>
+        `
+    $('#box').append(strs);
+</script>
+</body>
+</html>

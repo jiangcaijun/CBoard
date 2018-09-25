@@ -1,0 +1,667 @@
+*{
+	margin:0;
+	padding: 0;
+}
+.box{
+	background-color: rgba(231,237,243,1);
+	border:none;
+}
+.len1{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	/*background: url(logo.png) no-repeat;*/
+	background-size: 100%;
+	/*background-color: #3ebbff;*/
+	/*background:-webkit-gradient(linear,0 0 ,0 100%，from(#7BC3FF), to(#7BC3FF));*/
+	-webkit-animation:bbb 2.5s linear 1;
+	-webkit-animation-fill-mode:both;
+}
+/*.len img{
+	width: 100%;
+	height: 100%;
+}*/
+.select2-container--classic .select2-selection--single{
+	padding-top: 3px !important;
+}
+.select2-search__field{
+	background-color: #eceff4 !important;
+}
+@keyframes aaa{
+	0%  {right:0; }
+	10%  {right:0; }
+	20% {right:0; }
+	40% {right:25%; }
+	60%{right:50%; }
+	80%{right:75%; }
+	100%{right:100%; }
+
+}
+@keyframes bbb{
+	0%  {opacity:1; }
+	10%  {opacity:1; }
+	20% {opacity:0.8; }
+	40% {opacity:0.6; }
+	60%{opacity:0.4; }
+	80%{opacity:0.2; }
+	100%{right:100%; }
+
+}
+.Triangle-down{
+	width: 10px;
+	height: 13px;
+	/*background: red;*/
+	display: inline-block;
+	/*!*margin-right: 3px;*!*/
+	/*clip-path: polygon(100% 0,50% 100%,0 0);*/
+	background:url(../static/imgs/xj.png) no-repeat;
+}
+.Triangle{
+	width: 10px;
+	height: 13px;
+	/*background: #60a332;*/
+	display: inline-block;
+	/*margin-right: 3px;			*/
+	/*clip-path: polygon(3.5px 0px,100% 100%,0 100%);*/
+	background:url(../static/imgs/ss.png) no-repeat;
+}
+.title{
+	position: absolute;
+	top:35px;
+	left: 50%;
+	margin-left: -5%;
+}
+.title p{
+	font-size: 30px;
+	text-align: center;
+	/*margin-top: 10px;*/
+}
+.box .time{
+	position: absolute;
+	height: 33px;
+	/*border-radius: 10px;*/
+	/*border:none;*/
+	text-align: center;
+	/*background-color: rgba(231,237,243,1);*/
+}
+.box .select_city_f{
+	position: absolute;
+}
+
+.box-3 .tc{
+	display: none;
+	position: absolute;
+	width: 112px;
+	height: 17px;
+	color: #0c0c0c;
+	font-size: 9px;
+	text-align: center;
+	background-color: rgba(201,201,201,0.5);
+	border-radius: 5px;
+}
+/*公共样式*/
+.posabl{
+	position: absolute;
+	text-align: center;
+}
+@media (min-width: 0px) and (max-width: 1444px) {
+	.boxhed{
+		display: none;
+		position: absolute;
+		z-index:11111;
+		width: 100%;
+		height:600px;
+		background:#ecf0f5;
+		opacity: 0.5;
+	}
+	.boxhed_font{
+		margin-left: 37%;
+		margin-top: 8%;
+		font-size: 30px;
+		color: red;
+	}
+	.box{
+		background: url(../static/imgs/Capacity.png) no-repeat;
+		width: 1100px;
+		height: 650px;
+		background-size: 100%;
+		margin: auto;
+		position: relative;
+		/*top: 10%;*/
+	}
+	.box .time{
+		left: 80px;
+		top:-14px;
+	}
+	.box .select_city_f{
+		left: 209px;
+		top:-13px;
+	}
+	#webf{
+		position: absolute;
+		background: #ecf0f5;
+		width:100px;
+		height:60px;
+		left: 621px;
+		/*top:10px;*/
+		z-index:101;
+	}
+	.one_circular{
+		position: relative;
+		width: 370px;
+		height: 320px;
+		top: 64px;
+		left: 105px;
+		color: #fff;
+	}
+	/*活跃闪送员数*/
+	.one_circular .hyssy{
+		top: 166px;
+		left: 186px;
+		width: 91px;
+		height: 50px;
+		line-height: 13px;
+	}
+		.hyssy-num{
+			font-size: 23px;
+		}
+	/*非首单闪送员*/
+	.one_circular .fsdssy{
+		top: 265px;
+		left: 186px;
+		width: 91px;
+		height: 41px;
+		line-height: 13px;
+	}
+		.fsdssy-num{
+			font-size: 18px;
+		}
+		/*首单闪送员*/
+	.one_circular .sdssy{
+		top: 180px;
+		left: 101px;
+		width: 78px;
+		height: 41px;
+		line-height: 13px;
+	}
+		.sdssy-num{
+			font-size: 18px;
+		}
+	/*注册7日以下下单首闪送员*/
+	.one_circular .zcqrx{
+		top: 140px;
+		left: 10px;
+		width: 78px;
+		height: 41px;
+		line-height: 13px;
+	}
+		.zcqrx-num{
+			font-size: 18px;
+		}
+	/*注册7日以下上单首闪送员*/
+	.one_circular .zcqrs{
+		top: 270px;
+		left: 53px;
+		width: 78px;
+		height: 41px;
+		line-height: 13px;
+	}
+		.zcqrs-num{
+			font-size: 18px;
+		}
+	/*第二个模块*/
+	.two-fa{
+		position: absolute;
+		top:134px;
+		left: 510px;
+		width: 500px;
+		height: 303px;
+		color: #fff;
+	}
+	/*上半部分*/
+	.two-up{
+		position: relative;
+		top: 29px;
+		width: 500px;
+		height: 150px;
+	}
+	/*完单闪送员*/
+	.two-up .wadssy{
+		top: 63px;
+		left: 196px;
+		width: 78px;
+		height: 41px;
+		line-height: 23px;
+	}
+		.wadssy-num{
+			font-size: 23px;
+		}
+	/*抢单活跃闪送员*/
+	.two-up .qdhyssy{
+		top: 34px;
+		left: 58px;
+		width: 78px;
+		height: 41px;
+		line-height: 13px;
+	}
+		.qdhyssy-num{
+			font-size: 18px;
+		}
+	/*派单活跃闪送员*/
+	.two-up .pdhyssy{
+		top: 105px;
+		left: 58px;
+		width: 78px;
+		height: 41px;
+		line-height: 13px;
+	}
+		.pdhyssy-num{
+			font-size: 18px;
+		}
+	/*iph*/
+	.iph{
+		top:30px;
+		left: 320px;
+	}
+	/*核心层闪送员*/
+	.hxcssy{
+		top:104px;
+		left: 320px;
+	}
+	/*下半部分*/
+	.two-down{
+		position: relative;
+		top: 53px;
+		left: 180px;
+		width: 300px;
+		height: 100px;
+	}
+	/*奖励闪送员数*/
+	.two-down .jlssy{
+		top: 32px;
+		left: 13px;
+		width: 78px;
+		height: 41px;
+		line-height: 11px;
+	}
+		.jlssy-num{
+			font-size: 18px;
+		}
+	/*封禁闪送员数*/
+	.two-down .fjssy{
+		top: 32px;
+		left: 114px;
+		width: 78px;
+		height: 41px;
+		line-height: 11px;
+		color: black;
+	}
+		.fjssy-num{
+			font-size: 18px;
+		}
+	/*处罚闪送员数*/
+	.two-down .cfssy{
+		top: 32px;
+		left: 217px;
+		width: 78px;
+		height: 41px;
+		line-height: 11px;
+		color: black;
+	}
+		.cfssy-num{
+			font-size: 18px;
+		}
+    /*留存和流失*/
+	.right-our{
+		position: absolute;
+		top:10px;
+		left: 810px;
+		width: 230px;
+		height: auto;
+	}
+	.yu{
+		position: relative;
+	}
+	.right-our .yu .left{
+		position: absolute;
+	}
+	.right-our .yu .right{
+		left: 115px;
+		position: absolute;
+
+	}
+	.yuan{
+		border:2px solid orangered;
+		padding-top: 12px;
+		width: 100px;
+		height: 66px;
+		border-radius: 5px;
+		text-align: center;
+		line-height: 13px;
+	}
+	.fontbig{
+		font-size: 16px;
+	}
+
+
+
+
+
+
+}
+
+@media (min-width: 1445px) and (max-width: 1950px){
+	.boxhed{
+		display: none;
+		position: absolute;
+		z-index:11111;
+		width: 100%;
+		height:1900px;
+		background:#ecf0f5;
+		opacity: 0.5;
+	}
+	.boxhed_font{
+		margin-left: 39%;
+		margin-top: 16%;
+		font-size: 40px;
+		color: red;
+	}
+	.box{
+		background: url(../static/imgs/Capacity.png) no-repeat;
+		width: 1520px;
+		height: 832px;
+		background-size: 100%;
+		margin: auto;
+		position: relative;
+		/*top: 0px;*/
+	}
+	.box .time{
+		left: 80px;
+		top:-14px;
+	}
+	.box .select_city_f{
+		left: 209px;
+		top:-13px;
+	}
+	#webf{
+		position: absolute;
+		background: #ecf0f5;
+		width:135px;
+		height:83px;
+		left: 859px;
+		/*top:10px;*/
+		z-index:101;
+	}
+	.font-write{
+		color: #fff;
+		font-size: 12px;
+		margin-left: 5px;
+	}
+
+	.one_circular{
+		position: relative;
+		width: 497px;
+		height: 412px;
+		top: 129px;
+		left: 155px;
+		color: #fff;
+	}
+	/*活跃闪送员数*/
+	.one_circular .hyssy{
+		top: 186px;
+		left: 250px;
+		width: 117px;
+		height: 61px;
+		line-height: 23px;
+	}
+	.hyssy-num{
+		font-size: 28px;
+	}
+	.hyssy-b{
+		font-size: 16px;
+	}
+	/*非首单闪送员*/
+	.one_circular .fsdssy{
+		top: 323px;
+		left: 265px;
+		width: 91px;
+		height: 48px;
+		line-height: 19px;
+	}
+	.fsdssy-num{
+		font-size: 25px;
+	}
+	.fsdssy-b{
+		font-size: 16px;
+	}
+	/*首单闪送员*/
+	.one_circular .sdssy{
+		top: 200px;
+		left: 138px;
+		width: 86px;
+		height: 52px;
+		line-height: 20px;
+	}
+	.sdssy-num{
+		font-size: 25px;
+	}
+	.sdssy-b{
+		font-size: 16px;
+	}
+	/*注册7日以下首单首闪送员*/
+	.one_circular .zcqrx{
+		top: 149px;
+		left: 10px;
+		width: 93px;
+		height: 55px;
+		line-height: 25px;
+	}
+	.zcqrx-num{
+		font-size: 26px;
+	}
+	.zcqrx-b{
+		font-size: 16px;
+	}
+	/*注册7日以上单首闪送员*/
+	.one_circular .zcqrs{
+		top: 336px;
+		left: 63px;
+		width: 99px;
+		height: 41px;
+		line-height: 18px;
+	}
+	.zcqrs-num{
+		font-size: 25px;
+	}
+	.zcqrs-b{
+		font-size: 16px;
+	}
+	/*第二个模块*/
+	.two-fa{
+		position: absolute;
+		top:223px;
+		right: 129px;
+		width: 683px;
+		height: 348px;
+		color: #fff;
+	}
+	/*!*上半部分*!*/
+	.two-up{
+		position: relative;
+		width: 600px;
+		height: 209px;
+	}
+	/*!*完单闪送员*!*/
+	.two-up .wadssy{
+		top: 88px;
+		left: 255px;
+		width: 122px;
+		height:76px;
+		line-height: 37px;
+	}
+	.wadssy-num{
+		font-size: 35px;
+	}
+	.wadssy-b{
+		font-size: 16px;
+	}
+	/*!*抢单活跃闪送员*!*/
+	.two-up .qdhyssy{
+		top: 51px;
+		left: 65px;
+		width: 139px;
+		height: 47px;
+		line-height: 18px;
+	}
+	.qdhyssy-num{
+		font-size: 27px;
+	}
+	.qdhyssy-b{
+		font-size: 16px;
+	}
+	/*!*派单活跃闪送员*!*/
+	.two-up .pdhyssy{
+		top: 151px;
+		left: 65px;
+		width: 139px;
+		height: 47px;
+		line-height: 16px;
+	}
+	.pdhyssy-num{
+		font-size: 27px;
+	}
+	.pdhyssy-b{
+		font-size: 16px;
+	}
+	/*!*iph*!*/
+	.iph{
+		top:47px;
+		right: 82px;
+		font-size: 20px;
+	}
+	.iph-b{
+		font-size: 17px;
+	}
+	/*!*核心层闪送员*!*/
+	.hxcssy{
+		top:147px;
+		right: 60px;
+		font-size: 20px;
+	}
+	.hxcssy-b{
+		font-size: 17px;
+	}
+
+	/*!*下半部分*!*/
+	.two-down{
+		position: relative;
+		top: 39px;
+		left: 247px;
+		width: 408px;
+		height: 100px;
+	}
+	/*!*奖励闪送员数*!*/
+	.two-down .jlssy{
+		top: 44px;
+		left: 15px;
+		width: 105px;
+		height: 41px;
+		line-height: 19px;
+	}
+	.jlssy-num{
+		font-size: 24px;
+	}
+	.jlssy-b{
+		font-size: 16px;
+	}
+	/*!*封禁闪送员数*!*/
+	.two-down .fjssy{
+		top: 44px;
+		left: 135px;
+		width: 157px;
+		height: 41px;
+		line-height: 19px;
+		color: black;
+	}
+	.fjssy-num{
+		font-size: 24px;
+	}
+	.fjssy-b{
+		font-size: 16px;
+	}
+	/*!*处罚闪送员数*!*/
+	.two-down .cfssy{
+		top: 44px;
+		left: 297px;
+		width: 105px;
+		height: 41px;
+		line-height: 19px;
+		color: black;
+	}
+	.cfssy-num{
+		font-size: 24px;
+	}
+	.cfssy-b{
+		font-size: 16px;
+	}
+	/*!*留存和流失*!*/
+	.right-our{
+		position: absolute;
+		top:10px;
+		right: 10px;
+		width: 230px;
+		height: auto;
+	}
+	.yu{
+		position: relative;
+	}
+	.right-our .yu .left{
+		position: absolute;
+	}
+	.right-our .yu .right{
+		left: 115px;
+		position: absolute;
+
+	}
+	.yuan{
+		border:2px solid orangered;
+		padding-top: 12px;
+		width: 100px;
+		height: 66px;
+		border-radius: 5px;
+		text-align: center;
+		line-height: 13px;
+	}
+	.fontbig{
+		font-size: 16px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

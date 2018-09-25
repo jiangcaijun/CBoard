@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="org/cboard/view/custom/overh_1/overviews.css">
+	<link href="org/cboard/view/custom/static/css/select2.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="boxhed">
+	<p class="boxhed_font">暂无数据.....</p>
+</div>
+<div style="padding-top: 140px; padding-right: 70px; position: relative">
+	<div class="title">
+		<p>综合指标概览</p>
+	</div>
+	<div class="box" id="box">
+
+		<div>
+			<input type="text" id="time" class="time" onfocus="" style="width: 100px" onchange="changer()">
+		</div>
+		<div class="select_city_f">
+			<select class="select2 select_city js-example-basic-multiple js-states form-control"
+					onchange="changer()"
+					style="width: 90px;height: 20px;background: rgba(231,237,243,1);">
+				<option value="0">中国</option>
+			</select>
+		</div>
+		<!--城市遮罩-->
+		<div class="hidens">
+		</div>
+        <!--未播单遮罩-->
+        <div id="webf">
+
+        </div>
+		<!--商户个人-->
+		<div class="shgeren">
+
+		</div>
+		<div class="datas">
+		</div>
+	</div>
+</div>
+<script src="org/cboard/view/custom/static/js/select2.min.js"></script>
+<script src="org/cboard/view/custom/overh/overviews.js"></script>
+<script>
+	watchhender();
+    var data_push = function () {
+        var data_json = 'ext/getDataset.do';
+        var select_id = $('.select_city').val();
+        var timer = $('#time').val().replace(/-/g,'');
+//        console.log(timer)
+//        console.log(select_id,timer);
+        $.post(data_json,{
+            dsCode:'691f61c0-3d2e-11e8-b8e5-2f283bb1c5c7',
+            params:"{city_id:'"+ select_id +"',dt_ymd:'"+ timer +"'}",
+//            params:'{city_id:\'1101\',dt_ymd:\'20180328\'}'
+        },function (datas) {
+			if(datas.status == 2){
+                $('.boxhed').css("display","block");
+                setTimeout(function () {
+                    $('.boxhed').css("display","none");
+                },3000)
+				return ;
+			}
+//            console.log(datas)
+             var data_ = eval('('+ datas.msg +')');
+			 var data = data_[0];
+			 var Brate_number = filltersnum( data.registPayUserCnt,data.registUserCnt);
+			 var Srate_number = filltersnum( data.near30SilentPayUserCnt,data.near30SilentUserCnt);
+			 var Pdanb = filltersnum(data.assignPayOrderCnt,data.payOrderCnt);
+			 var Qdanb = filltersnum(data.competePayOrderCnt,data.payOrderCnt);
+			 var Gr = filltersnum(data.userFinishOrderCnt,data.finishOrderCnt);
+			 var Sh = filltersnum(data.businessFinishOrderCnt,data.finishOrderCnt);
+            let strs = `
+    <div class="right-1">
+			<p class="yuan zhu clealr_va"><b>${filter_number(data.registUserCnt)}</b></p>
+			<p class="yuan-b zhuB clealr_va"><i class=${check(data.registUserCntIncremInd)}></i>${small_number(data.registUserCntIncrem)}</p>
+		</div>
+		<p class="left-down">
+			<b>${filter_number(data.near30SilentUserCnt)}</b>
+		</p>
+		<!--中间-->
+                <div class="big-center">
+                <!-- 支付用户数 -->
+                <div class="payment">
+                <p class="payment-num clealr_va"><b>${filter_number(data.payUserCnt)}</b></p>
+                <p class="payment-b"><i class=${check(data.payUserCntIncremInd)}></i>${small_number(data.payUserCntIncrem)}</p>
+                </div>
+                <!-- 老用户 -->
+                <div class="olduser">
+                <p class="olduser-num">${filter_number(data.payOldUserCnt)}</p>
+                <p class="olduser-b"><i class=${check(data.payOldUserCntIncremInd)}></i>${small_number(data.payOldUserCntIncrem)}</p>
+                </div>
+                <!-- 注册且支付用户 -->
+                <div class="register">
+                <p class="register-num">${filter_number(data.registPayUserCnt)}</p>
+                <p class="register-b"><i class=${check(data.registPayUserCntIncremInd)}></i>${small_number(data.registPayUserCntIncrem)}</p>
+                </div>
+                <!-- 沉默注册且支付用户 -->
+                <div class="silent">
+                <p class="silent-num">${filter_number(data.silentPayUserCnt)}</p>
+                <p class="silent-b"><i class=${check(data.silentPayUserCntIncremInd)}></i>${small_number(data.silentPayUserCntIncrem)}</p>
+                </div>
+                <!-- 转化率（大） -->
+                <div class="rate">
+                <p class="rate-num">${Brate_number}</p>
+                </div>
+                <!-- 近30天沉默注册且支付用户（中） -->
+                <div class="jin">
+                <p class="jin-num">${filter_number(data.near30SilentPayUserCnt)}</p>
+                </div>
+                <!-- 30天前（下） -->
+                <div class="thirty">
+                <p class="thirty-num">${filter_number(data.bf30SilentPayUserCnt)}</p>
+                </div>
+                <!-- 转化率（小） -->
+                <div class="rates">
+                <p class="rates-num">${Srate_number}</p>
+                </div>
+                </div>
+                <!-- 第三个区块 -->
+                <div class="box-31">
+                <div class="box-3">
+                <div class="tc"></div>
+                <!-- 派单取消率 -->
+                <div class="ancelq fang">
+                <p class="ancelq-b jing"><span class="pqx">${threshold(data.assignOrderCancelRateThres,data.assignOrderCancelRateThresInd)}</span></p>
+                <p class="ancelq-cen jing-c"><b>${small_number(data.assignOrderCancelRate)}</b></p>
+                </div>
+                <!-- 未播单率 -->
+                <div class="noplay fang">
+                <p class="ancelj-b jing"><span class="wb">${threshold(data.notRemindOrderRateThres,data.notRemindOrderRateThresInd)}</span></p>
+                <p class="ancelj-cen jing-c"><b>${small_number(data.notRemindOrderRate)}</b></p>
+                </div>
+                <!-- 抢单接单率 -->
+                <div class="grabj fang">
+                <p class="grabj-b jing"></p>
+                <p class="grabj-cen jing-c"><b>${small_number(data.competeOrderGrabRate)}</b></p>
+                </div>
+                <!--派单拒单率 -->
+                <div class="grabq fang">
+                <p class="grabq-b jing"><span class="pjd">${threshold(data.assignOrderRefuseRateThres,data.assignOrderRefuseRateThresInd)}</span></p>
+                <p class="grabq-cen jing-c"><b>${small_number(data.assignOrderRefuseRate)}</b></p>
+                </div>
+                <!-- 接单率 -->
+                <div class="jiedan fang">
+                <p class="jiedan-b jing"></p>
+                <p class="jiedan-cen jing-c"><b>${small_number(data.grabOrderRate)}</b></p>
+                </div>
+                <!-- 取消率 -->
+                <div class="quxiao fang">
+                <p class="quxiao-b jing"><span class="qxl">${threshold(data.cancelOrderRateThres,data.cancelOrderRateThresInd)}</span></p>
+                <p class="quxiao-cen jing-c"><b>${small_number(data.cancelOrderRate)}</b></p>
+                </div>
+                <!-- 支付订单数 -->
+                <div class="payment">
+                <p class="payment-num"><b>${filter_number(data.payOrderCnt)}</b></p>
+                <p class="payment-b"><i class=${check(data.payOrderCntIncremInd)}></i>${small_number(data.payOrderCntIncrem)}</p>
+                </div>
+                <!-- 完成率 -->
+                <div class="complete">
+                <p class="complete-num"><b>${small_number(data.finishOrderRate)}</b></p>
+                <!-- <p class="complete-b"><i class="Triangle"></i>4%</p> -->
+                </div>
+                <!-- 派单 -->
+                <div class="dispatch">
+                <p class="dispatch-num">派<span>${filter_number(data.assignPayOrderCnt)}</span></p>
+                <p class="dispatch-b">${Pdanb}</p>
+                </div>
+                <!-- 抢单 -->
+                <div class="rob">
+                <p class="rob-num">抢<span>${filter_number(data.competePayOrderCnt)}</span></p>
+                <p class="rob-b">${Qdanb}</p>
+                </div>
+                </div>
+                </div>
+                <!-- 右侧 上-->
+                <div class="z-rightup">
+                <div class="posd">
+                <!-- 完成订单数 -->
+                <div class="wanc">
+                <p class="wanc-num">${filter_number(data.finishOrderCnt)}</p>
+                <p class="wanc-b"><i class=${check(data.finishOrderCntIncremInd)}></i>&nbsp${small_number(data.finishOrderCntIncrem)}</p>
+                </div>
+                </div>
+                </div>
+                `
+    		$('.datas').append(strs);
+    	});
+    }
+    data_push();
+    $('#box').on('mouseover', '.fang', function(e) {
+        var left = this.offsetLeft,
+        	top = this.offsetTop;
+        $('.tc').css("left",left + 60);
+		$('.tc').css("top",top - 10);
+		var name = '';
+//		console.log($(this))
+		$(this).find('span').each((index,element) =>{
+		    if(element.innerHTML.indexOf("img")>=0){
+		        $('.tc').show();
+		        if(element.className.indexOf('pqx') !== -1){
+						name = '阈值 : 3%-6%';
+					}else if(element.className.indexOf('qjd') !== -1){
+//						name = '阈值 : 80%-90%';
+//						$('.tc').css("left",left - 20);
+//						$('.tc').css("top",top - 25);
+//						if($(window).width() == '1265' || $(window).width() == '1425'){
+//							$('.tc').css("left",left - 40);
+//						}
+						$('.tc').hide();
+	//					console.log($(window).width())
+					}else if(element.className.indexOf('pjd') !== -1){
+						name = '阈值 : 3%-5%';
+					}else if(element.className.indexOf('jdl') !== -1){
+//						name = '阈值 : 80%-90%';
+						$('.tc').hide();
+					}else if(element.className.indexOf('qxl') !== -1){
+						name = '阈值 : 15%-25%';
+					}else if(element.className.indexOf('wb') !== -1){
+						 $('.tc').hide();
+					}
+		    }else{
+		        $('.tc').hide();
+		    }
+		})
+		$('.tc').html(name)
+	}).mouseout(function (){
+        $(".tc").hide();
+    });
+
+</script>
+</body>
+</html>

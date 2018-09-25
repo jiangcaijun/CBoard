@@ -1,0 +1,43 @@
+
+/*隐藏百度地图左下角标识*/
+.anchorBL,.BMap_cpyCtrl{display:none}
+.big_box{
+    padding: 5px;
+    background-color: #ffffff;
+}
+
+.map_socket{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 0px) and (max-width: 1280px){
+    .big_box {
+        height: 590px;
+        width: 100%;
+    }
+
+
+}
+@media (min-width: 1281px) and (max-width: 1430px) {
+    .big_box {
+        height: 650px;
+        width: 100%;
+    }
+
+}
+@media (min-width: 1431px) and (max-width: 1950px){
+    .big_box {
+        height: 905px;
+        width: 100%;
+    }
+
+}
